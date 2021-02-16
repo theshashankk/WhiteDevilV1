@@ -2,6 +2,7 @@ FROM ubuntu:latest
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TERM xterm-256color
 RUN apt-get update && apt upgrade -y && apt-get install sudo -y
+RUN echo Eh?
 
 RUN apt-get install -y\
     coreutils \
@@ -54,7 +55,6 @@ RUN apt-get install -y\
     libfreetype6-dev \
     procps \
     policykit-1
-
 
 RUN apt-get autoremove --purge
 RUN pip3 install --upgrade pip setuptools 
