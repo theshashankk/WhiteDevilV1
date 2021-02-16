@@ -3,7 +3,7 @@ import inspect
 import logging
 import re
 from pathlib import Path
-
+from fridaybot.function.bot_utils import tr
 from telethon import events
 
 from fridaybot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot, client2, client3, CMD_HELP
@@ -134,6 +134,7 @@ def load_module(shortname):
         sys.modules["plugins"] = fridaybot.modules
         sys.modules["userbot"] = fridaybot
         mod.admin_cmd = friday_on_cmd
+        mod.tr = tr
         mod.sudo_cmd = sudo_cmd
         mod.friday_on_cmd = friday_on_cmd
         mod.CMD_HELP = CMD_HELP
@@ -198,6 +199,7 @@ def load_module_dclient(shortname, client):
         mod.admin_cmd = friday_on_cmd
         mod.sudo_cmd = sudo_cmd
         mod.friday_on_cmd = friday_on_cmd
+        mod.tr = tr
         mod.Config = Config
         mod.ignore_grp = ignore_grp()
         mod.ignore_pm = ignore_pm()
@@ -736,6 +738,7 @@ def start_assistant(shortname):
         mod.god_only = god_only()
         mod.only_groups = only_groups()
         mod.only_pro = only_pro()
+        mod.tr = tr
         mod.pro_only = only_pro()
         mod.only_group = only_group()
         mod.is_bot_admin = is_bot_admin()
