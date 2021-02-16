@@ -8,7 +8,8 @@ async def tr(event, text):
     if kk == 'en':
         await event.edit(text)
     else:
+        final_text = text.replace("*", "").replace("`", "").replace("__", "")
         translator = google_translator()
-        translated = translator.translate(text ,lang_tgt=kk)
+        translated = translator.translate(final_text, lang_tgt=kk)
         await event.edit(translated)
     return    
