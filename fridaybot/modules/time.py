@@ -82,7 +82,7 @@ async def _(event):
     TZ = pytz.timezone(Config.TZ)
     datetime_tz = datetime.now(TZ)
     oof = datetime_tz.strftime(f"**Time Zone :** `{Config.TZ}` \n\n**Date :** `%Y/%m/%d` \n**Time :** `%H:%M:%S`")
-    await event.edit(oof)
+    await tr(event, oof)
 
 CMD_HELP.update(
     {

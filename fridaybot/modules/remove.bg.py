@@ -33,7 +33,7 @@ async def _(event):
     if event.fwd_from:
         return
     if Config.REM_BG_API_KEY is None:
-        await event.edit("You need API token from remove.bg to use this plugin.")
+        await tr(event, "You need API token from remove.bg to use this plugin.")
         return False
     input_str = event.pattern_match.group(1)
     start = datetime.now()
@@ -42,23 +42,23 @@ async def _(event):
         message_id = event.reply_to_msg_id
         reply_message = await event.get_reply_message()
         # check if media message
-        await event.edit("`Parsing the image.`")
+        await tr(event, "`Parsing the image.`")
         try:
             downloaded_file_name = await borg.download_media(
                 reply_message, Config.TMP_DOWNLOAD_DIRECTORY
             )
         except Exception as e:
-            await event.edit(str(e))
+            await tr(event, str(e))
             return
         else:
-            await event.edit("sending to ReMove.BG")
+            await tr(event, "sending to ReMove.BG")
             output_file_name = ReTrieveFile(downloaded_file_name)
             os.remove(downloaded_file_name)
     elif input_str:
-        await event.edit("sending to ReMove.BG")
+        await tr(event, "sending to ReMove.BG")
         output_file_name = ReTrieveURL(input_str)
     else:
-        await event.edit(HELP_STR)
+        await tr(event, HELP_STR)
         return
     contentType = output_file_name.headers.get("content-type")
     if "image" in contentType:
@@ -74,11 +74,11 @@ async def _(event):
             )
         end = datetime.now()
         ms = (end - start).seconds
-        await event.edit(
+        await tr(event, 
             "Removed image's Background in {} seconds, powered by @FridayOT".format(ms)
         )
     else:
-        await event.edit(
+        await tr(event, 
             "ReMove.BG API returned Errors. Please report to @FridayOT\n`{}".format(
                 output_file_name.content.decode("UTF-8")
             )

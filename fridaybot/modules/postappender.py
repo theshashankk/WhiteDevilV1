@@ -28,23 +28,23 @@ lulstark = [".", ",", "!", "'"]
 async def mstark(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     lul_id = event.chat_id
     append_text = event.pattern_match.group(1)
     is_foot = True
     if event.is_group:
-        await event.edit("`No, LoL You Can't Set Channel Post Appender In Groups, lol`")
+        await tr(event, "`No, LoL You Can't Set Channel Post Appender In Groups, lol`")
         return
     if event.is_private:
-        await event.edit(
+        await tr(event, 
             "`No, LoL You Can't Set Channel Post Appender In Private Chats, lol`"
         )
         return
     if is_data_indbs(lul_id):
-        await event.edit("`Please Remove Old Data, To Add New One`")
+        await tr(event, "`Please Remove Old Data, To Add New One`")
     elif not is_data_indbs(lul_id):
         add_new_datas_in_db(lul_id, append_text, is_foot)
-        await event.edit(
+        await tr(event, 
             f"Sucessfully, Saved This Text. Every New Message's Footer Will Be Edited To `{append_text}`"
         )
 
@@ -53,23 +53,23 @@ async def mstark(event):
 async def _starky(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     lul_id = event.chat_id
     append_text = event.pattern_match.group(1)
     is_foot = False
     if event.is_group:
-        await event.edit("`No, LoL You Can't Set Channel Append System In Groups, lol`")
+        await tr(event, "`No, LoL You Can't Set Channel Append System In Groups, lol`")
         return
     if event.is_private:
-        await event.edit(
+        await tr(event, 
             "`No, LoL You Can't Set Channel Append System In Private Chats, lol`"
         )
         return
     if is_data_indbs(lul_id):
-        await event.edit("`Please Remove Old Data, To Add New One`")
+        await tr(event, "`Please Remove Old Data, To Add New One`")
     elif not is_data_indbs(lul_id):
         add_new_datas_in_db(lul_id, append_text, is_foot)
-        await event.edit(
+        await tr(event, 
             f"Sucessfully, Saved This Text. Every New Message's Header Will Be Edited To `{append_text}`"
         )
 
@@ -78,13 +78,13 @@ async def _starky(event):
 async def _m(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     id_s = event.chat_id
     if is_data_indbs(id_s):
         remove_dataz(id_s)
-        await event.edit("`Done, I have Removed This Channel From DB`")
+        await tr(event, "`Done, I have Removed This Channel From DB`")
     elif not is_data_indbs(id_s):
-        await event.edit("`You Need To Set Channel Append System To Remove It`")
+        await tr(event, "`You Need To Set Channel Append System To Remove It`")
 
 
 @bot.on(events.NewMessage)
@@ -96,9 +96,9 @@ async def luli(event):
         if event.text.startswith(tuple(lulstark)):
             return
         if is_footer(event.chat_id):
-            await event.edit(f"{lol_text} \n{is_data_indbs(event.chat_id)}")
+            await tr(event, f"{lol_text} \n{is_data_indbs(event.chat_id)}")
         elif not is_footer(event.chat_id):
-            await event.edit(f"{is_data_indbs(event.chat_id)} \n{lol_text}")
+            await tr(event, f"{is_data_indbs(event.chat_id)} \n{lol_text}")
     elif not is_data_indbs(event.chat_id):
         return
 
@@ -107,11 +107,11 @@ async def luli(event):
 async def _m(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     id_s = event.chat_id
     if is_data_indbs(id_s):
-        await event.edit(
+        await tr(event, 
             f"`Channel ID : {id_s} \nIs Foot: {is_footer(event.chat_id)} \nText: {is_data_indbs(event.chat_id)}`"
         )
     elif not is_data_indbs(id_s):
-        await event.edit("`You Need To Set Channel Append System To Check It`")
+        await tr(event, "`You Need To Set Channel Append System To Check It`")

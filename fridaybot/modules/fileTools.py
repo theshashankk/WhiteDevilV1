@@ -44,14 +44,14 @@ async def heck(event):
         chnnl = un
     else:
         chnnl = event.chat_id
-    await event.edit(f"**Fetching All Images From This Channel**")
+    await tr(event, f"**Fetching All Images From This Channel**")
     try:
         chnnl_msgs = await borg.get_messages(chnnl, limit=3000, filter=InputMessagesFilterPhotos)
     except:
-        await event.edit("**Unable To fetch Messages !** \n`Please, Check Channel Details And IF There Are Any Images :/`")
+        await tr(event, "**Unable To fetch Messages !** \n`Please, Check Channel Details And IF There Are Any Images :/`")
         return
     total = int(chnnl_msgs.total)
-    await event.edit(f"**Downloading {total} Images**")
+    await tr(event, f"**Downloading {total} Images**")
     for d in chnnl_msgs:
         media_count += 1
         await borg.download_media(d.media, dir)
@@ -73,12 +73,12 @@ async def hmm(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("Reply to any Pdf File.")
+        await tr(event, "Reply to any Pdf File.")
         return
-    hmmu = await event.edit("hmm... Please Wait...🚶")
+    hmmu = await tr(event, "hmm... Please Wait...🚶")
     lol = await event.get_reply_message()
     starky = await borg.download_media(lol.media, Config.TMP_DOWNLOAD_DIRECTORY)
-    hmmu = await event.edit("hmm... Please Wait..")
+    hmmu = await tr(event, "hmm... Please Wait..")
     pdf_file = starky
     docx_file = './fridaybot/DOWNLOADS/FRIDAYOT.docx'
     parse(pdf_file, docx_file, start=0, end=None)

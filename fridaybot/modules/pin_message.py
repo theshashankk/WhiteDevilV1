@@ -23,11 +23,11 @@ async def _(event):
                 )
             )
         except Exception as e:
-            await event.edit(str(e))
+            await tr(event, str(e))
         else:
             await event.delete()
     else:
-        await event.edit("Reply to a message to pin the message in this Channel.")
+        await tr(event, "Reply to a message to pin the message in this Channel.")
 
 
 CMD_HELP.update(

@@ -19,13 +19,13 @@ async def _(event):
 
     if Config.SCREEN_SHOT_LAYER_ACCESS_KEY is None:
 
-        await event.edit(
+        await tr(event, 
             "Need to get an API key from https://screenshotlayer.com/product \nModule stopping!"
         )
 
         return
 
-    await event.edit("Processing ...")
+    await tr(event, "Processing ...")
 
     sample_url = "https://api.screenshotlayer.com/api/capture?access_key={}&url={}&fullpage={}&viewport={}&format={}&force={}"
 
@@ -61,11 +61,11 @@ async def _(event):
 
             except Exception as e:
 
-                await event.edit(str(e))
+                await tr(event, str(e))
 
     else:
 
-        await event.edit(response_api.text)
+        await tr(event, response_api.text)
 
 
 CMD_HELP.update(

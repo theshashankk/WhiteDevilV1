@@ -12,9 +12,9 @@ async def load(event):
         except:
             pass
         load_module(shortname)
-        await event.edit(f"Successfully loaded {shortname}")
+        await tr(event, f"Successfully loaded {shortname}")
     except Exception as e:
-        await event.edit(
+        await tr(event, 
             f"Could not load {shortname} because of the following error.\n{str(e)}"
         )
 
@@ -26,8 +26,8 @@ async def unload(event):
     shortname = event.pattern_match.group(1)
     try:
         remove_plugin(shortname)
-        await event.edit(f"Unloaded {shortname} successfully")
+        await tr(event, f"Unloaded {shortname} successfully")
     except Exception as e:
-        await event.edit(
+        await tr(event, 
             "Successfully unload {shortname}\n{}".format(shortname, str(e))
         )

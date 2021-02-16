@@ -45,7 +45,7 @@ async def progress(current, total, event, start, type_of_ps, file_name=None):
         )
         if file_name:
             try:
-                await event.edit(
+                await tr(event, 
                     "{}\n**File Name:** `{}`\n{}".format(type_of_ps, file_name, tmp)
                     
                 )
@@ -53,7 +53,7 @@ async def progress(current, total, event, start, type_of_ps, file_name=None):
                 pass
         else:
             try:
-                await event.edit("{}\n{}".format(type_of_ps, tmp))
+                await tr(event, "{}\n{}".format(type_of_ps, tmp))
             except:
                 pass
 

@@ -47,30 +47,30 @@ openhehe = ChatBannedRights(
 @friday.on(friday_on_cmd(pattern="scgrp$"))
 async def close_ws(event):
     if not event.is_group:
-        await event.edit("You Can Only Enable Night Mode in Groups.")
+        await tr(event, "You Can Only Enable Night Mode in Groups.")
         return
     if not await is_admin(event, bot.uid): 
-        await event.edit("`You Should Be Admin To Do This!`")
+        await tr(event, "`You Should Be Admin To Do This!`")
         return
     if is_nightmode_indb(str(event.chat_id)):
-        await event.edit("This Chat is Has Already Enabled Night Mode.")
+        await tr(event, "This Chat is Has Already Enabled Night Mode.")
         return
     add_nightmode(str(event.chat_id))
-    await event.edit(f"**Added Chat {event.chat.title} With Id {event.chat_id} To Database. This Group Will Be Closed On 12Am(IST) And Will Opened On 06Am(IST)**")
+    await tr(event, f"**Added Chat {event.chat.title} With Id {event.chat_id} To Database. This Group Will Be Closed On 12Am(IST) And Will Opened On 06Am(IST)**")
 
 @friday.on(friday_on_cmd(pattern="rsgrp$"))
 async def disable_ws(event):
     if not event.is_group:
-        await event.edit("You Can Only Disable Night Mode in Groups.")
+        await tr(event, "You Can Only Disable Night Mode in Groups.")
         return
     if not await is_admin(event, bot.uid): 
-        await event.edit("`You Should Be Admin To Do This!`")
+        await tr(event, "`You Should Be Admin To Do This!`")
         return
     if not is_nightmode_indb(str(event.chat_id)):
-        await event.edit("This Chat is Has Not Enabled Night Mode.")
+        await tr(event, "This Chat is Has Not Enabled Night Mode.")
         return
     rmnightmode(str(event.chat_id))
-    await event.edit(f"**Removed Chat {event.chat.title} With Id {event.chat_id} From Database. This Group Will Be No Longer Closed On 12Am(IST) And Will Opened On 06Am(IST)**")
+    await tr(event, f"**Removed Chat {event.chat.title} With Id {event.chat_id} From Database. This Group Will Be No Longer Closed On 12Am(IST) And Will Opened On 06Am(IST)**")
 
 
 async def job_close():

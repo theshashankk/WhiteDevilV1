@@ -51,7 +51,7 @@ async def _(event):
     if x:
         html = requests.get(url).content.decode('utf-8')
     else:
-        await event.edit("This Video Is Either Private Or URL Is Invalid. Exiting... ")
+        await tr(event, "This Video Is Either Private Or URL Is Invalid. Exiting... ")
         return
 
     _qualityhd = re.search('hd_src:"https', html)
@@ -67,7 +67,7 @@ async def _(event):
     filename = datetime.strftime(datetime.now(), '%Y-%m-%d-%H-%M-%S')
 
     main(url, filename)
-    await event.edit("Video Downloaded Successfully. Starting To Upload.")
+    await tr(event, "Video Downloaded Successfully. Starting To Upload.")
         
     kk = f"{filename}.mp4"
     caption= f"Facebook Video Successfully by Fridaybot.\nGet Your Fridaybot From @Fridayot."

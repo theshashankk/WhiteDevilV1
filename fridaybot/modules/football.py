@@ -23,7 +23,7 @@ async def _(event):
         return
     
     if Config.FOOTBALL_API_KEY is None:
-      await event.edit("Need to get an API key from https://rapidapi.com/api-sports/api/api-football-beta\nModule stopping!")
+      await tr(event, "Need to get an API key from https://rapidapi.com/api-sports/api/api-football-beta\nModule stopping!")
       return
     
     appo = Config.FOOTBALL_API_KEY
@@ -156,7 +156,7 @@ async def _(event):
         return
     
     if Config.FOOTBALL_API_KEY is None:
-      await event.edit("Need to get an API key from https://rapidapi.com/api-sports/api/api-football-beta\nModule stopping!")
+      await tr(event, "Need to get an API key from https://rapidapi.com/api-sports/api/api-football-beta\nModule stopping!")
       return
     
     appo = Config.FOOTBALL_API_KEY
@@ -289,7 +289,7 @@ async def _(event):
         return
     
     if Config.FOOTBALL_API_KEY is None:
-      await event.edit("Need to get an API key from https://rapidapi.com/api-sports/api/api-football-beta\nModule stopping!")
+      await tr(event, "Need to get an API key from https://rapidapi.com/api-sports/api/api-football-beta\nModule stopping!")
       return
     
     appo = Config.FOOTBALL_API_KEY

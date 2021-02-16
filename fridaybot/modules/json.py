@@ -31,7 +31,7 @@ async def _(event):
             )
             await event.delete()
     else:
-        await event.edit("`{}`".format(the_real_message))
+        await tr(event, "`{}`".format(the_real_message))
 
 
 CMD_HELP.update(

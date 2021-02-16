@@ -62,7 +62,7 @@ async def _(event):
         tfbro = await edit_or_reply(event, "Wait Fetching Website Info")
         gone = event.pattern_match.group(1)
         url = f"https://api.ip2whois.com/v1?key=free&domain=" + gone
-        await event.edit(
+        await tr(event, 
             "Fecthing Website Info ! Stay Tuned. This may take some time ;)"
         )
         lol = iplookup.iplookup
@@ -180,7 +180,7 @@ async def _(event):
             )
         await stark_result.edit(noob, parse_mode="HTML")
     except:
-        await event.edit("Some Thing Went Wrong.")
+        await tr(event, "Some Thing Went Wrong.")
         
 @friday.on(friday_on_cmd(pattern="apk ?(.*)"))
 async def _(event):
@@ -199,18 +199,18 @@ async def _(event):
     try:
         warner = Track_Mobile_Number(phonenumber).track
     except:
-        await event.edit("`Failed, Please Check Phone Number.`")
+        await tr(event, "`Failed, Please Check Phone Number.`")
         return
     for i in warner:
         hmm += f"<u><b>{i}</u></b> ➠ <code>{warner[i]}</code> \n"
-    await event.edit(hmm, parse_mode="HTML")
+    await tr(event, hmm, parse_mode="HTML")
     
 @friday.on(friday_on_cmd(pattern="(comedyme|jokes)$"))
 async def hehe(event):
     if event.fwd_from:
         return
     r = requests.get("https://icanhazdadjoke.com/", headers={"Accept": "application/json"}).json()
-    await event.edit(r['joke'])
+    await tr(event, r['joke'])
     
 @friday.on(friday_on_cmd(pattern="randomgif ?(.*)"))
 async def gif_world(event):
@@ -243,7 +243,7 @@ async def what(event):
            f"**Gender :** `{r['gender']}` \n"
            f"**Ethnicity :** `{r['ethnicity']}` \n"
            f"**Probability :** `{r['gender probability']}`")
-    await event.edit(hmm)
+    await tr(event, hmm)
      
      
 @friday.on(friday_on_cmd(pattern="hostlookup (.*)"))
@@ -254,9 +254,9 @@ async def hecks(event):
     try:
         kk = socket.gethostbyaddr(starky)[0]
     except:
-        await event.edit("Check Your Fking IP")
+        await tr(event, "Check Your Fking IP")
         return
-    await event.edit(f"**Host Name :** `{kk}`")
+    await tr(event, f"**Host Name :** `{kk}`")
     
 CMD_HELP.update(
     {

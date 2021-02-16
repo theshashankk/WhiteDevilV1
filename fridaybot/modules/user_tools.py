@@ -465,10 +465,10 @@ async def _(event):
     try:
         input_entity = await event.client.get_entity(input_str)
     except Exception:
-        await event.edit("`Hmm...`")
+        await tr(event, "`Hmm...`")
         return
     else:
-        await event.edit(get_restriction_string(input_entity))
+        await tr(event, get_restriction_string(input_entity))
 
 
 def get_restriction_string(a) -> str:
@@ -502,7 +502,7 @@ async def _(event):
     reply_message = await event.get_reply_message()
     replied_user, error_i_a = await get_full_user(event)
     if replied_user is None:
-        await event.edit(str(error_i_a))
+        await tr(event, str(error_i_a))
         return False
     user_id = replied_user.user.id
     profile_pic = await event.client.download_profile_photo(
@@ -525,7 +525,7 @@ async def _(event):
     # giving myself credits cause y not
     user_bio = replied_user.about
     if user_id == 1263617196:
-        await event.edit("Sorry, can't clone my Dev")
+        await tr(event, "Sorry, can't clone my Dev")
         await asyncio.sleep(3)
         return
     if user_bio is not None:

@@ -48,18 +48,18 @@ async def approve_p_m(event):
         firstname = replied_user.user.first_name
         if pmpermit_sql.is_approved(event.chat_id):
             pmpermit_sql.disapprove(event.chat_id)
-        await event.edit("Blocked [{}](tg://user?id={})".format(firstname, event.chat_id))
+        await tr(event, "Blocked [{}](tg://user?id={})".format(firstname, event.chat_id))
         await event.client(functions.contacts.BlockRequest(event.chat_id))
     elif event.is_group:
         reply_s = await event.get_reply_message()
         if not reply_s:
-            await event.edit('`Reply To User To Block Him !`')
+            await tr(event, '`Reply To User To Block Him !`')
             return
         replied_user = await event.client(GetFullUserRequest(reply_s.sender_id))
         firstname = replied_user.user.first_name
         if pmpermit_sql.is_approved(event.chat_id):
             pmpermit_sql.disapprove(event.chat_id)
-        await event.edit("Blocked [{}](tg://user?id={})".format(firstname, reply_s.sender_id))
+        await tr(event, "Blocked [{}](tg://user?id={})".format(firstname, reply_s.sender_id))
         await event.client(functions.contacts.BlockRequest(reply_s.sender_id))
         await asyncio.sleep(3)
         await event.delete()
@@ -101,31 +101,31 @@ if PM_ON_OFF != "DISABLE":
                     await PREV_REPLY_MESSAGE[event.chat_id].delete()
                     del PREV_REPLY_MESSAGE[event.chat_id]
                 pmpermit_sql.approve(event.chat_id, "Approved Another Nibba")
-                await event.edit(
+                await tr(event, 
                     "Approved to pm [{}](tg://user?id={})".format(firstname, event.chat_id)
                 )
                 await asyncio.sleep(3)
                 await event.delete()
             elif pmpermit_sql.is_approved(event.chat_id):
-                sed = await event.edit('`This User Already Approved.`')
+                sed = await tr(event, '`This User Already Approved.`')
                 await asyncio.sleep(3)
                 await sed.delete()
         elif event.is_group:
             reply_s = await event.get_reply_message()
             if not reply_s:
-                await event.edit('`Reply To User To Approve Him !`')
+                await tr(event, '`Reply To User To Approve Him !`')
                 return
             if not pmpermit_sql.is_approved(reply_s.sender_id):
                 replied_user = await event.client(GetFullUserRequest(reply_s.sender_id))
                 firstname = replied_user.user.first_name
                 pmpermit_sql.approve(reply_s.sender_id, "Approved Another Nibba")
-                await event.edit(
+                await tr(event, 
                         "Approved to pm [{}](tg://user?id={})".format(firstname, reply_s.sender_id)
                     )
                 await asyncio.sleep(3)
                 await event.delete()
             elif pmpermit_sql.is_approved(reply_s.sender_id):
-                await event.edit('`User Already Approved !`')
+                await tr(event, '`User Already Approved !`')
                 await event.delete()
 
     @borg.on(friday_on_cmd(pattern="(da|disapprove|disallow)$"))
@@ -137,31 +137,31 @@ if PM_ON_OFF != "DISABLE":
             firstname = replied_user.user.first_name
             if pmpermit_sql.is_approved(event.chat_id):
                 pmpermit_sql.disapprove(event.chat_id)
-                await event.edit(
+                await tr(event, 
                     "Disapproved User [{}](tg://user?id={})".format(firstname, event.chat_id)
                 )
                 await asyncio.sleep(3)
                 await event.delete()
             elif not pmpermit_sql.is_approved(event.chat_id):
-                led = await event.edit("`This User Is Not Even Approved To Disapprove !`")
+                led = await tr(event, "`This User Is Not Even Approved To Disapprove !`")
                 await asyncio.sleep(3)
                 await led.delete()
         elif event.is_group:
             reply_s = await event.get_reply_message()
             if not reply_s:
-                await event.edit('`Reply To User To DisApprove Him !`')
+                await tr(event, '`Reply To User To DisApprove Him !`')
                 return
             if pmpermit_sql.is_approved(reply_s.sender_id):
                 replied_user = await event.client(GetFullUserRequest(reply_s.sender_id))
                 firstname = replied_user.user.first_name
                 pmpermit_sql.disapprove(reply_s.sender_id)
-                await event.edit(
+                await tr(event, 
                     "Disapproved User [{}](tg://user?id={})".format(firstname, reply_s.sender_id)
                 )
                 await asyncio.sleep(3)
                 await event.delete()
             elif not pmpermit_sql.is_approved(reply_s.sender_id):
-                await event.edit('`User Even Not Approved !`')
+                await tr(event, '`User Even Not Approved !`')
                 await event.delete()    
                 
                 
@@ -194,7 +194,7 @@ if PM_ON_OFF != "DISABLE":
                 )
                 await event.delete()
         else:
-            await event.edit(APPROVED_PMs)
+            await tr(event, APPROVED_PMs)
 
     @borg.on(events.NewMessage(incoming=True))
     async def on_new_private_message(event):

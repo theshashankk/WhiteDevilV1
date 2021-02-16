@@ -30,9 +30,9 @@ async def vom(event):
             f"<b>Url Shortened</b> \n<b><u>Given Link</u></b> ➠ {link}\n"
             f"<b><u>Shortened Link</u></b> ➠ {kek}"
         )
-        await event.edit(bestisbest, parse_mode="HTML")
+        await tr(event, bestisbest, parse_mode="HTML")
     except Exception as e:
-        await event.edit("SomeThing Went Wrong. \nError : " + e)
+        await tr(event, "SomeThing Went Wrong. \nError : " + e)
 
 
 CMD_HELP.update(

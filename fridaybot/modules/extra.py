@@ -13,7 +13,7 @@ async def leave(e):
     if e.fwd_from:
         return
     if e.is_private:
-        await event.edit("`I Can't Do That.`")
+        await tr(event, "`I Can't Do That.`")
         return
     await e.edit(f"My Master {bot.me.first_name} Wishes To Leave This Chat, So Bye.")
     await e.client.kick_participant(e.chat_id, bot.me.id)
@@ -64,7 +64,7 @@ async def _(event):
     deq = deque(list("🍆✊🏻💦"))
     for _ in range(32):
         await asyncio.sleep(0.1)
-        await event.edit("".join(deq))
+        await tr(event, "".join(deq))
         deq.rotate(1)
 
 

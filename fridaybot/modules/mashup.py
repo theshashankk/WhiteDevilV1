@@ -19,7 +19,7 @@ async def _(event):
     if event.reply_to_msg_id:
         reply_to_id = await event.get_reply_message()
     chat = "@vixtbot"
-    await event.edit("```Checking...```")
+    await tr(event, "```Checking...```")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -31,7 +31,7 @@ async def _(event):
             await event.reply("Unblock @vixtbot")
             return
         if response.text.startswith("I can't find that"):
-            await event.edit("sorry i can't find it")
+            await tr(event, "sorry i can't find it")
         else:
             await event.delete()
             await borg.send_file(event.chat_id, response.message, reply_to=reply_to_id)

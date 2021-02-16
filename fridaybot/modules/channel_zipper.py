@@ -31,14 +31,14 @@ async def starky(event):
         chnnl = un
     else:
         chnnl = event.chat_id
-    await event.edit(f"**Fetching All Files From This Channel**")
+    await tr(event, f"**Fetching All Files From This Channel**")
     try:
         chnnl_msgs = await borg.get_messages(chnnl, limit=3000)
     except:
-        await event.edit("**Unable To fetch Messages !** \n`Please, Check Channel Details And IF THere Are Any Media :/`")
+        await tr(event, "**Unable To fetch Messages !** \n`Please, Check Channel Details And IF THere Are Any Media :/`")
         return
     total = int(chnnl_msgs.total)
-    await event.edit(f"**Downloading {total} Media/Messages**")
+    await tr(event, f"**Downloading {total} Media/Messages**")
     for d in chnnl_msgs:
         if d.media:
             media_count += 1
@@ -47,9 +47,9 @@ async def starky(event):
             text_count += 1
             f = open(f"{dir}{chnnl}.txt", "a")
             f.write(f"{d.raw_text} \n\n")
-    await event.edit(f"**Total Media :** `{total}` \n**Downloaded Media :** `{media_count}` \n**Total Texts Appended :** `{text_count}` \n**Now Zipping Files.**")
+    await tr(event, f"**Total Media :** `{total}` \n**Downloaded Media :** `{media_count}` \n**Total Texts Appended :** `{text_count}` \n**Now Zipping Files.**")
     shutil.make_archive(f"{chnnl}", "zip", dir)
-    tf = await event.edit(f"**Total Media :** `{total}` \n**Downloaded Media :** `{media_count}` \n**Total Texts Appended :** `{text_count}` \n**Uploading Zip**")
+    tf = await tr(event, f"**Total Media :** `{total}` \n**Downloaded Media :** `{media_count}` \n**Total Texts Appended :** `{text_count}` \n**Uploading Zip**")
     await borg.send_file(event.chat_id, f"{chnnl}.zip", caption=f"**Total Media :** `{total}` \n**Downloaded Media :** `{media_count}` \n**Total Texts Appended :** `{text_count}`")
     await tf.delete()
     os.remove(f"{chnnl}.zip")

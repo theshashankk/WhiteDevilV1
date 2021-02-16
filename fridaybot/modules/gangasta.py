@@ -9,21 +9,21 @@ async def _(event):
     if event.fwd_from:
         return
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
-        await event.edit("EVERyBOdy")
+        await tr(event, "EVERyBOdy")
         await asyncio.sleep(0.3)
-        await event.edit("iZ")
+        await tr(event, "iZ")
         await asyncio.sleep(0.2)
-        await event.edit("GangSTur")
+        await tr(event, "GangSTur")
         await asyncio.sleep(0.5)
-        await event.edit("UNtIL ")
+        await tr(event, "UNtIL ")
         await asyncio.sleep(0.2)
-        await event.edit("I")
+        await tr(event, "I")
         await asyncio.sleep(0.3)
-        await event.edit("ArRivE")
+        await tr(event, "ArRivE")
         await asyncio.sleep(0.3)
-        await event.edit("🔥🔥🔥")
+        await tr(event, "🔥🔥🔥")
         await asyncio.sleep(0.3)
-        await event.edit("EVERyBOdy iZ GangSTur UNtIL I ArRivE 🔥🔥🔥")
+        await tr(event, "EVERyBOdy iZ GangSTur UNtIL I ArRivE 🔥🔥🔥")
 
 
 CMD_HELP.update(

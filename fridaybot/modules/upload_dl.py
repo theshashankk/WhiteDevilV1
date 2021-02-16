@@ -41,7 +41,7 @@ async def progress(current, total, event, start, type_of_ps, file_name=None):
         )
         if file_name:
             try:
-                await event.edit(
+                await tr(event, 
                     "{}\n**File Name:** `{}`\n{}".format(type_of_ps, file_name, tmp)
                     
                 )
@@ -49,7 +49,7 @@ async def progress(current, total, event, start, type_of_ps, file_name=None):
                 pass
         else:
             try:
-                await event.edit("{}\n{}".format(type_of_ps, tmp))
+                await tr(event, "{}\n{}".format(type_of_ps, tmp))
             except:
                 pass
 
@@ -101,7 +101,7 @@ async def download(target_file):
         return
     sedd = await target_file.get_reply_message()
     if not sedd.media:
-        await event.edit("`I Can Only Download Media As For Now.`")
+        await tr(event, "`I Can Only Download Media As For Now.`")
         return
     try:
         c_time = time.time()
@@ -385,7 +385,7 @@ async def lul(event):
     if event.fwd_from:
         return
     input_str = event.raw_text.split(" ", maxsplit=1)[1]
-    mone = await event.edit("**Processing..**")
+    mone = await tr(event, "**Processing..**")
     start = datetime.now()
     url = input_str
     a = urlparse(input_str)
@@ -472,12 +472,12 @@ async def lol_kangers(event):
         }
         lmao = requests.get(url=url, headers=sed).json()
     else:
-        await event.edit("Only Zee Videos Supported.")
+        await tr(event, "Only Zee Videos Supported.")
         return
     if lmao['success'] is False:
-        await event.edit("Task Failed Due To " + str(lmao['error']))
+        await tr(event, "Task Failed Due To " + str(lmao['error']))
         return
-    await event.edit("Direct Link Fetched \nURL : " + str(lmao['url']))
+    await tr(event, "Direct Link Fetched \nURL : " + str(lmao['url']))
         
         
 CMD_HELP.update(

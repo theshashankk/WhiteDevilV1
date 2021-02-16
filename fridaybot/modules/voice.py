@@ -26,7 +26,7 @@ async def _(event):
     elif "|" in input_str:
         lan, text = input_str.split("|")
     else:
-        await event.edit("Invalid Syntax. Module stopping.")
+        await tr(event, "Invalid Syntax. Module stopping.")
         return
     text = text.strip()
     lan = lan.strip()
@@ -56,7 +56,7 @@ async def _(event):
                 command_to_execute, stderr=subprocess.STDOUT
             )
         except (subprocess.CalledProcessError, NameError, FileNotFoundError) as exc:
-            await event.edit(str(exc))
+            await tr(event, str(exc))
             # continue sending required_file_name
         else:
             os.remove(required_file_name)
@@ -72,11 +72,11 @@ async def _(event):
             voice_note=True,
         )
         os.remove(required_file_name)
-        await event.edit("Processed {} ({}) in {} seconds!".format(text[0:97], lan, ms))
+        await tr(event, "Processed {} ({}) in {} seconds!".format(text[0:97], lan, ms))
         await asyncio.sleep(5)
         await event.delete()
     except Exception as e:
-        await event.edit(str(e))
+        await tr(event, str(e))
 
 
 CMD_HELP.update(

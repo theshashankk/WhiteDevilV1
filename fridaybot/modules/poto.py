@@ -57,13 +57,13 @@ if 1 == 1:
 
                 if id <= 0:
 
-                    await event.edit("`ID number you entered is invalid`")
+                    await tr(event, "`ID number you entered is invalid`")
 
                     return
 
             except:
 
-                await event.edit("`Are you Comedy Me ?`")
+                await tr(event, "`Are you Comedy Me ?`")
 
                 return
 
@@ -75,7 +75,7 @@ if 1 == 1:
 
             else:
 
-                await event.edit("`No photo found of that Nigga , now u Die`")
+                await tr(event, "`No photo found of that Nigga , now u Die`")
 
                 return
 

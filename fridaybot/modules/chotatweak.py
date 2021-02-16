@@ -8,15 +8,15 @@ async def _(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("```Reply to a Link.```")
+        await tr(event, "```Reply to a Link.```")
         return
     reply_message = await event.get_reply_message()
     if not reply_message.text:
-        await event.edit("```Reply to a Link```")
+        await tr(event, "```Reply to a Link```")
         return
     chat = "@chotamreaderbot"
     reply_message.sender
-    await event.edit("```Processing```")
+    await tr(event, "```Processing```")
     async with event.client.conversation(chat) as conv:
         try:
             response = conv.wait_event(
@@ -28,7 +28,7 @@ async def _(event):
             await event.reply("`RIP Check Your Blacklist Boss`")
             return
         if response.text.startswith(""):
-            await event.edit("Am I Dumb Or Am I Dumb?")
+            await tr(event, "Am I Dumb Or Am I Dumb?")
         else:
             await event.delete()
             await event.client.send_message(event.chat_id, response.message)

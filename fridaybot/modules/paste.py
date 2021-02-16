@@ -53,7 +53,7 @@ async def _(event):
         else:
             message = previous_message.message
     else:
-        await event.edit("Give Some Text Or File To Paste")
+        await tr(event, "Give Some Text Or File To Paste")
     py_file = ""
     name = "ok"
     if previous_message.media:
@@ -73,7 +73,7 @@ async def _(event):
         url = f"https://nekobin.com/{key}{py_file}"
         raw = f"https://nekobin.com/raw/{key}{py_file}"
         reply_text = f"Pasted Text [neko]({url})\n Raw ? [View Raw]({raw})"
-        await event.edit(reply_text)
+        await tr(event, reply_text)
     else:
         data = message
         key = (
@@ -85,7 +85,7 @@ async def _(event):
         url = f"https://nekobin.com/{key}"
         raw = f"https://nekobin.com/raw/{key}"
         reply_text = f"Pasted Text [neko]({url})\n Raw ? [View Raw]({raw})"
-        await event.edit(reply_text)
+        await tr(event, reply_text)
 
 
 CMD_HELP.update(

@@ -70,7 +70,7 @@ pq={
 async def zee5(event):
     if event.fwd_from:
         return
-    await event.edit('`Checking Your Combos. This May Take Time Depending On No of Combos.`')
+    await tr(event, '`Checking Your Combos. This May Take Time Depending On No of Combos.`')
     stark_dict = []
     hits_dict = []
     hits = 0
@@ -81,7 +81,7 @@ async def zee5(event):
         stark_dict = f.read().splitlines()
     os.remove(starky)
     if len(stark_dict) > 50:
-        await event.edit('`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
+        await tr(event, '`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
         return
     for i in stark_dict:
         starkm = i.split(":")
@@ -97,7 +97,7 @@ async def zee5(event):
         else:
             bads += 1
     if len(hits_dict) == 0:
-        await event.edit("**0 Hits. Probably, You Should Find Better Combos. LoL**")
+        await tr(event, "**0 Hits. Probably, You Should Find Better Combos. LoL**")
         return
     with open("hits.txt", "w") as hitfile:
         for s in hits_dict:
@@ -111,7 +111,7 @@ async def zee5(event):
 async def vypr(event):
     if event.fwd_from:
         return
-    await event.edit('`Checking Your Combos. This May Take Time Depending On No of Combos.`')
+    await tr(event, '`Checking Your Combos. This May Take Time Depending On No of Combos.`')
     stark_dict = []
     hits_dict = []
     hits = 0
@@ -122,7 +122,7 @@ async def vypr(event):
         stark_dict = f.read().splitlines()
     os.remove(starky)
     if len(stark_dict) > 50:
-        await event.edit('`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
+        await tr(event, '`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
         return
     for i in stark_dict:
         starkm = i.split(":")
@@ -143,7 +143,7 @@ async def vypr(event):
         else:
             bads += 1
     if len(hits_dict) == 0:
-        await event.edit("**0 Hits. Probably, You Should Find Better Combos. LoL**")
+        await tr(event, "**0 Hits. Probably, You Should Find Better Combos. LoL**")
         return
     with open("hits.txt", "w") as hitfile:
         for s in hits_dict:
@@ -157,7 +157,7 @@ async def vypr(event):
 async def vortex(event):
     if event.fwd_from:
         return
-    await event.edit('`Checking Your Combos. This May Take Time Depending On No of Combos.`')
+    await tr(event, '`Checking Your Combos. This May Take Time Depending On No of Combos.`')
     stark_dict = []
     hits_dict = []
     hits = 0
@@ -168,7 +168,7 @@ async def vortex(event):
         stark_dict = f.read().splitlines()
     os.remove(starky)
     if len(stark_dict) > 50:
-        await event.edit('`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
+        await tr(event, '`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
         return
     for i in stark_dict:
         starkm = i.split(":")
@@ -189,7 +189,7 @@ async def vortex(event):
         else:
             bads += 1
     if len(hits_dict) == 0:
-        await event.edit("**0 Hits. Probably, You Should Find Better Combos. LoL**")
+        await tr(event, "**0 Hits. Probably, You Should Find Better Combos. LoL**")
         return
     with open("hits.txt", "w") as hitfile:
         for s in hits_dict:
@@ -203,7 +203,7 @@ async def vortex(event):
 async def vortex(event):
     if event.fwd_from:
         return
-    await event.edit('`Checking Your Combos. This May Take Time Depending On No of Combos.`')
+    await tr(event, '`Checking Your Combos. This May Take Time Depending On No of Combos.`')
     stark_dict = []
     hits_dict = []
     hits = 0
@@ -214,7 +214,7 @@ async def vortex(event):
         stark_dict = f.read().splitlines()
     os.remove(starky)
     if len(stark_dict) > 50:
-        await event.edit('`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
+        await tr(event, '`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
         return
     for i in stark_dict:
         starkm = i.split(":")
@@ -242,7 +242,7 @@ async def vortex(event):
             plan = find_between(meke, 'account_level_display": "', '"')
             hits_dict.append(f"{email}:{password} | Plan = {plan}")
     if len(hits_dict) == 0:
-        await event.edit("**0 Hits. Probably, You Should Find Better Combos. LoL**")
+        await tr(event, "**0 Hits. Probably, You Should Find Better Combos. LoL**")
         return
     with open("hits.txt", "w") as hitfile:
         for s in hits_dict:
@@ -269,7 +269,7 @@ def find_between( s, first, last ):
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit("CHECKING PROXIES... PLEASE WAIT. MAY TAKE TIME DEPENDING ON NUMBER OF PROXIES.")
+    await tr(event, "CHECKING PROXIES... PLEASE WAIT. MAY TAKE TIME DEPENDING ON NUMBER OF PROXIES.")
     pablo = await event.get_reply_message()
     escobar = await borg.download_media(pablo.media, Config.TMP_DOWNLOAD_DIRECTORY)
     
@@ -286,7 +286,7 @@ async def _(event):
         Counter += 1
     file.close()
     if Counter<=0:
-      await event.edit("Check Failed. Either Your File Has All Bad Proxies Or Your Proxy File Is Invalid.")
+      await tr(event, "Check Failed. Either Your File Has All Bad Proxies Or Your Proxy File Is Invalid.")
     elif Counter>=1:
       file1 = open("goood.txt", "a")
       file1.write("\nCHECKED BY FRIDAY. GET YOUR OWN FRIDAY FROM @FRIDAYCHAT. ") 
@@ -300,7 +300,7 @@ async def _(event):
 async def voot(event):
     if event.fwd_from:
         return
-    await event.edit('`Checking Your Combos. This May Take Time Depending On No of Combos.`')
+    await tr(event, '`Checking Your Combos. This May Take Time Depending On No of Combos.`')
     normal_dict = []
     good_dict = []
     hits = 0
@@ -311,7 +311,7 @@ async def voot(event):
         normal_dict = f.read().splitlines()
     os.remove(humm)
     if len(normal_dict) > 50:
-        await event.edit('`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
+        await tr(event, '`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
         return
     for i in normal_dict:
         mmho = i.split(":")
@@ -338,7 +338,7 @@ async def voot(event):
             bady += 1
             c = kk.get("code")
             if c == 1906:
-              await event.edit("voot server is blocking the requests. please try after few minutes...")
+              await tr(event, "voot server is blocking the requests. please try after few minutes...")
               if len(good_dict) == 0:
                 return
               with open("hits.txt", "w") as hitfile:
@@ -349,7 +349,7 @@ async def voot(event):
                 return
 
     if len(good_dict) == 0:
-        await event.edit("**0 Hits. Probably, You Should Find Better Combos. LoL**")
+        await tr(event, "**0 Hits. Probably, You Should Find Better Combos. LoL**")
         return
     with open("hits.txt", "w") as hitfile:
         for s in good_dict:
@@ -365,7 +365,7 @@ async def voot(event):
 async def altbalaji(event):
     if event.fwd_from:
         return
-    await event.edit('`Checking Your Combos. This May Take Time Depending On No of Combos.`')
+    await tr(event, '`Checking Your Combos. This May Take Time Depending On No of Combos.`')
     stark_dict = []
     hits_dict = []
     hits = 0
@@ -377,7 +377,7 @@ async def altbalaji(event):
         stark_dict = f.read().splitlines()
     os.remove(starky)
     if len(stark_dict) > 50:
-        await event.edit('`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
+        await tr(event, '`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
         return
     for i in stark_dict:
         starkm = i.split(":")
@@ -394,7 +394,7 @@ async def altbalaji(event):
         else:
             bads += 1
     if len(hits_dict) == 0:
-        await event.edit("**0 Hits. Probably, You Should Find Better Combos. LoL**")
+        await tr(event, "**0 Hits. Probably, You Should Find Better Combos. LoL**")
         return
     with open("hits.txt", "w") as hitfile:
         for s in hits_dict:
@@ -409,7 +409,7 @@ async def altbalaji(event):
 async def altbalaji(event):
     if event.fwd_from:
         return
-    await event.edit('`Checking Your Combos. This May Take Time Depending On No of Combos.`')
+    await tr(event, '`Checking Your Combos. This May Take Time Depending On No of Combos.`')
     normal_list = []
     hits_dict = []
     hits = 0
@@ -421,7 +421,7 @@ async def altbalaji(event):
         normal_list = f.read().splitlines()
     os.remove(nub)
     if len(normal_list) > 50:
-        await event.edit('`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
+        await tr(event, '`Woah, Thats A Lot Of Combos. Keep 50 As Limit`')
         return
     for i in normal_list:
         Hitler = i.split(":")
@@ -438,7 +438,7 @@ async def altbalaji(event):
         else:
             bads += 1
     if len(hits_dict) == 0:
-        await event.edit("**0 Hits. Probably, You Should Find Better Combos. LoL**")
+        await tr(event, "**0 Hits. Probably, You Should Find Better Combos. LoL**")
         return
     with open("hits.txt", "w") as hitfile:
         for s in hits_dict:
@@ -457,7 +457,7 @@ async def byekanger(event):
 <b>Password :</b> <code>{sed['pass']}</code>
 <b>Combo :</b> <code>{sed['combo']}</code>
 """
-    await event.edit(sedjson, parse_mode="HTML")
+    await tr(event, sedjson, parse_mode="HTML")
     	
 CMD_HELP.update(
     {

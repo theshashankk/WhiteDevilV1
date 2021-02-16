@@ -28,7 +28,7 @@ async def _(event):
 
     # if input_str == "jio":
 
-    await event.edit("jio")
+    await tr(event, "jio")
 
     animation_chars = [
         "`Connecting To JIO Network 📡 ....`",
@@ -56,7 +56,7 @@ async def _(event):
 
         await asyncio.sleep(animation_interval)
 
-        await event.edit(animation_chars[i % 19])
+        await tr(event, animation_chars[i % 19])
 
 
 CMD_HELP.update(

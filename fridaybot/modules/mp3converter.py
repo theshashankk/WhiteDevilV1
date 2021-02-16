@@ -16,11 +16,11 @@ async def _(event):
     input_str = event.pattern_match.group(1)
     reply_message = await event.get_reply_message()
     if reply_message is None:
-        await event.edit(
+        await tr(event, 
             "reply to a media to use the `nfc` operation.\nInspired by @FileConverterBot"
         )
         return
-    await event.edit("trying to download media file, to my local")
+    await tr(event, "trying to download media file, to my local")
     try:
         start = datetime.now()
         c_time = time.time()
@@ -32,11 +32,11 @@ async def _(event):
             ),
         )
     except Exception as e:  # pylint:disable=C0103,W0703
-        await event.edit(str(e))
+        await tr(event, str(e))
     else:
         end = datetime.now()
         ms = (end - start).seconds
-        await event.edit(
+        await tr(event, 
             "Downloaded to `{}` in {} seconds.".format(downloaded_file_name, ms)
         )
         new_required_file_name = ""
@@ -81,7 +81,7 @@ async def _(event):
             voice_note = False
             supports_streaming = True
         else:
-            await event.edit("not supported")
+            await tr(event, "not supported")
             os.remove(downloaded_file_name)
             return
         logger.info(command_to_run)
@@ -114,4 +114,4 @@ async def _(event):
             )
             ms_two = (end_two - end).seconds
             os.remove(new_required_file_name)
-            await event.edit(f"converted in {ms_two} seconds")
+            await tr(event, f"converted in {ms_two} seconds")

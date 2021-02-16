@@ -28,29 +28,29 @@ lulstark = [".", ",", "!", "'"]
 async def _m(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     id_s = event.chat_id
     lmao = await event.get_reply_message()
     if event.is_group:
-        await event.edit("`No, LoL You Can't Set Channel Stickers In Groups, lol`")
+        await tr(event, "`No, LoL You Can't Set Channel Stickers In Groups, lol`")
         return
     if event.is_private:
-        await event.edit(
+        await tr(event, 
             "`No, LoL You Can't Set Channel Stickers In Private Chats, lol`"
         )
         return
     if not lmao.sticker:
-        await event.edit("`Only Sticker Allowded.`")
+        await tr(event, "`Only Sticker Allowded.`")
         return
     if is_data_indb(id_s):
-        await event.edit(
+        await tr(event, 
             "`This Channel Sticker Data Is Already In Db, Remove First To Update it.`"
         )
         return
     if not is_data_indb(id_s):
         bot_api_file_id = pack_bot_file_id(lmao.media)
         add_new_data_in_db(id_s, bot_api_file_id)
-        await event.edit(
+        await tr(event, 
             "`This Sticker Has Been Set As Channel Sticker For This Channel`"
         )
 
@@ -59,27 +59,27 @@ async def _m(event):
 async def _m(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     id_s = event.chat_id
     if is_data_indb(id_s):
         remove_datas(id_s)
-        await event.edit("`Done, I have Removed This Channel From DB`")
+        await tr(event, "`Done, I have Removed This Channel From DB`")
     elif not is_data_indb(id_s):
-        await event.edit("`You Need To Set Channel Sticker To Remove It`")
+        await tr(event, "`You Need To Set Channel Sticker To Remove It`")
 
 
 @friday.on(admin_cmd(pattern="ccs$"))
 async def _m(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     id_s = event.chat_id
     if is_data_indb(id_s):
-        await event.edit(
+        await tr(event, 
             f"**Yes, Channel Sticker Has Been Set. Sticker ID :** `{is_data_indb(id_s)}`"
         )
     elif not is_data_indb(id_s):
-        await event.edit("`No Channel Sticker Set For This Channel.`")
+        await tr(event, "`No Channel Sticker Set For This Channel.`")
 
 
 @bot.on(events.NewMessage)

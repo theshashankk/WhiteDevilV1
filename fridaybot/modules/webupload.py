@@ -10,14 +10,14 @@ from fridaybot import CMD_HELP
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing ...`")
+    await tr(event, "`Processing ...`")
     PROCESS_RUN_TIME = 100
     sedlyf = event.pattern_match.group(1)
     if '//' in sedlyf:
         selected_transfer, file_name = selected_transfer.split("//", 1)
     else:
         if not event.reply_to_msg_id:
-            await event.edit("**Failed !, Reply To File Or Give File Path**")
+            await tr(event, "**Failed !, Reply To File Or Give File Path**")
             return
         selected_transfer = event.pattern_match.group(1)
         reply = await event.get_reply_message()
@@ -34,7 +34,7 @@ async def _(event):
     try:
         selected_one = CMD_WEB[selected_transfer].format(file_name)
     except:
-        await event.edit("Invalid selected Transfer. Do .ahelp webupload to Know More.")
+        await tr(event, "Invalid selected Transfer. Do .ahelp webupload to Know More.")
         return
     cmd = selected_one
     time.time() + PROCESS_RUN_TIME
@@ -51,7 +51,7 @@ async def _(event):
         starky = f"Check Json Respose [Here]({url2})"
     else:
         starky = k
-    await event.edit(starky)
+    await tr(event, starky)
 
 
 CMD_HELP.update(

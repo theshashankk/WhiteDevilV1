@@ -25,7 +25,7 @@ async def _(event):
     if event.fwd_from:
         return
     if Config.GPLINKS_API_KEY is None:
-        await event.edit(
+        await tr(event, 
             "Need to get an API key from https://gplinks.in\nModule stopping!"
         )
         return

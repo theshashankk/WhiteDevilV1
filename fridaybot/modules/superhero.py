@@ -34,9 +34,9 @@ async def _(event):
     url = "https://superhero-search.p.rapidapi.com/"
     querystring = {"hero": input_str}
     if Config.SUPERHERO_API_KEY is None:
-      await event.edit("Need to get an API key from https://rapidapi.com/jakash1997/api/superhero-search\nModule stopping!")
+      await tr(event, "Need to get an API key from https://rapidapi.com/jakash1997/api/superhero-search\nModule stopping!")
       return
-    await event.edit("Processing Your Request.")
+    await tr(event, "Processing Your Request.")
     inputo = Config.SUPERHERO_API_KEY
 
     headers = {

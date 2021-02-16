@@ -24,7 +24,7 @@ async def _(event):
         await asyncio.sleep(int(ttl))
         await event.respond(message)
     else:
-        await event.edit(message)
+        await tr(event, message)
 
 
 CMD_HELP.update(

@@ -48,13 +48,13 @@ async def _(event):
             )
             await event.delete()
     if stderr.decode():
-        await event.edit(f"**{stderr.decode()}**")
+        await tr(event, f"**{stderr.decode()}**")
         return
-    await event.edit(f"{OUTPUT}`{stdout.decode()}`")
+    await tr(event, f"{OUTPUT}`{stdout.decode()}`")
 
 
 #    else:
-#        await event.edit("Unknown Command")
+#        await tr(event, "Unknown Command")
 
 
 @friday.on(friday_on_cmd(pattern=r"lsroot"))
@@ -86,9 +86,9 @@ async def _(event):
             )
             await event.delete()
     if stderr.decode():
-        await event.edit(f"**{stderr.decode()}**")
+        await tr(event, f"**{stderr.decode()}**")
         return
-    await event.edit(f"{OUTPUT}`{stdout.decode()}`")
+    await tr(event, f"{OUTPUT}`{stdout.decode()}`")
 
 
 @friday.on(friday_on_cmd(pattern=r"lssaved"))
@@ -120,9 +120,9 @@ async def _(event):
             )
             await event.delete()
     if stderr.decode():
-        await event.edit(f"**{stderr.decode()}**")
+        await tr(event, f"**{stderr.decode()}**")
         return
-    await event.edit(f"{OUTPUT}`{stdout.decode()}`")
+    await tr(event, f"{OUTPUT}`{stdout.decode()}`")
 
 
 @friday.on(friday_on_cmd(pattern=r"rnsaved ?(.*)"))
@@ -158,9 +158,9 @@ async def _(event):
             )
             await event.delete()
     if stderr.decode():
-        await event.edit(f"**{stderr.decode()}**")
+        await tr(event, f"**{stderr.decode()}**")
         return
-    await event.edit(f"File renamed `{src}` to `{dst}`")
+    await tr(event, f"File renamed `{src}` to `{dst}`")
 
 
 @friday.on(friday_on_cmd(pattern=r"rnlocal ?(.*)"))
@@ -196,9 +196,9 @@ async def _(event):
             )
             await event.delete()
     if stderr.decode():
-        await event.edit(f"**{stderr.decode()}**")
+        await tr(event, f"**{stderr.decode()}**")
         return
-    await event.edit(f"File renamed `{src}` to `{dst}`")
+    await tr(event, f"File renamed `{src}` to `{dst}`")
 
 
 @friday.on(friday_on_cmd(pattern=r"delsave (.*)"))
@@ -210,10 +210,10 @@ async def handler(event):
 
     if os.path.isfile(pathtofile):
         os.remove(pathtofile)
-        await event.edit("✅ File Deleted 🗑")
+        await tr(event, "✅ File Deleted 🗑")
 
     else:
-        await event.edit("⛔️File Not Found സാധനം കയ്യിലില്ല😬")
+        await tr(event, "⛔️File Not Found സാധനം കയ്യിലില്ല😬")
 
 
 @friday.on(friday_on_cmd(pattern=r"delocal (.*)"))
@@ -225,7 +225,7 @@ async def handler(event):
 
     if os.path.isfile(pathtofile):
         os.remove(pathtofile)
-        await event.edit("✅ File Deleted 🗑")
+        await tr(event, "✅ File Deleted 🗑")
 
     else:
-        await event.edit("⛔️File Not Found സാധനം കയ്യിലില്ല😬")
+        await tr(event, "⛔️File Not Found സാധനം കയ്യിലില്ല😬")

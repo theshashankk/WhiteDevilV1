@@ -69,7 +69,7 @@ async def hmm(event):
     if not event.reply_to_msg_id:
         await event.reply("Reply to any Image.")
         return
-    hmmu = await event.edit("Colourzing..")
+    hmmu = await tr(event, "Colourzing..")
     await event.get_reply_message()
     img = await convert_to_image(event, borg)
     net = cv2.dnn.readNetFromCaffe(
@@ -111,13 +111,13 @@ async def thumbnailer(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("`Reply to any Media File. I will Send You Its Thumb.`")
+        await tr(event, "`Reply to any Media File. I will Send You Its Thumb.`")
         return
     is_reply = await event.get_reply_message()
     try:
         thumbstark = await event.client.download_media(is_reply.media, thumb=-1)
     except:
-        await event.edit("`Well, My Eyes Couldn't Find Any Thumb. :/`")
+        await tr(event, "`Well, My Eyes Couldn't Find Any Thumb. :/`")
         return
     await event.delete()
     await event.client.send_file(event.chat_id, thumbstark, reply_to=is_reply)
@@ -131,12 +131,12 @@ async def hmm(event):
     life = Config.DEEP_API_KEY
     if life == None:
         life = "quickstart-QUdJIGlzIGNvbWluZy4uLi4K"
-        await event.edit("No Api Key Found, Please Add it. For Now Using Local Key")
+        await tr(event, "No Api Key Found, Please Add it. For Now Using Local Key")
     if not event.reply_to_msg_id:
         await event.reply("Reply to any Image.")
         return
     headers = {"api-key": life}
-    hmm = await event.edit("Colourzing..")
+    hmm = await tr(event, "Colourzing..")
     await event.get_reply_message()
     img = await convert_to_image(event, borg)
     img_file = {
@@ -183,7 +183,7 @@ async def _(event):
         try:
             usercolor = ImageColor.getrgb(input_str)
         except Exception as e:
-            await event.edit(str(e))
+            await tr(event, str(e))
             return False
         else:
             im = Image.new(mode="RGB", size=(1280, 720), color=usercolor)
@@ -199,7 +199,7 @@ async def _(event):
             os.remove("@Colour.png")
             await event.delete()
     else:
-        await event.edit("Syntax: `.color <color_code>`")
+        await tr(event, "Syntax: `.color <color_code>`")
         
 
         
@@ -230,7 +230,7 @@ async def iamthug(event):
     if not event.reply_to_msg_id:
         await event.reply("Reply to any Image.")
         return
-    hmm = await event.edit("`Converting To thug Image..`")
+    hmm = await tr(event, "`Converting To thug Image..`")
     await event.get_reply_message()
     img = await convert_to_image(event, borg)
     imagePath = img
@@ -262,7 +262,7 @@ async def iamnone(event):
     if not event.reply_to_msg_id:
         await event.reply("Reply to any Image.")
         return
-    hmm = await event.edit("`Converting To Masked Image..`")
+    hmm = await tr(event, "`Converting To Masked Image..`")
     await event.get_reply_message()
     img = await convert_to_image(event, borg)
     imagePath = img
@@ -297,7 +297,7 @@ async def toony(event):
     if not event.reply_to_msg_id:
         await event.reply("Reply to any Image.")
         return
-    hmmu = await event.edit("`Converting Toonized Image..`")
+    hmmu = await tr(event, "`Converting Toonized Image..`")
     await event.get_reply_message()
     img = await convert_to_image(event, borg)
     imagez = cv2.imread(img)
@@ -322,7 +322,7 @@ async def toony(event):
 async def lolmetrg(event):
     if event.fwd_from:
         return
-    await event.edit("`Triggered This Image`")
+    await tr(event, "`Triggered This Image`")
     sed = await event.get_reply_message()
     img = await convert_to_image(event, borg)
     url_s = upload_file(img)
@@ -343,7 +343,7 @@ async def lolmetrg(event):
 async def lolmetrg(event):
     if event.fwd_from:
         return
-    await event.edit("`Meking This Guy Gey.`")
+    await tr(event, "`Meking This Guy Gey.`")
     sed = await event.get_reply_message()
     img = await convert_to_image(event, borg)
     url_s = upload_file(img)
@@ -364,7 +364,7 @@ async def lolmetrg(event):
 async def lolmetrg(event):
     if event.fwd_from:
         return
-    await event.edit("`Pixing This Image.`")
+    await tr(event, "`Pixing This Image.`")
     sed = await event.get_reply_message()
     img = await convert_to_image(event, borg)
     url_s = upload_file(img)
@@ -385,7 +385,7 @@ async def lolmetrg(event):
 async def lolmetrg(event):
     if event.fwd_from:
         return
-    await event.edit("`Making Comment`")
+    await tr(event, "`Making Comment`")
     sed = await event.get_reply_message()
     hmm_s = await event.client(GetFullUserRequest(sed.sender_id))
     if not hmm_s.profile_photo:
@@ -453,7 +453,7 @@ async def hmm(event):
     if not event.reply_to_msg_id:
         await event.reply("Reply to any Image.")
         return
-    hmmu = await event.edit("hmm.. Creating a black&White image...")
+    hmmu = await tr(event, "hmm.. Creating a black&White image...")
     await event.get_reply_message()
     img = await convert_to_image(event, borg)
     img1 = cv2.imread(img)
@@ -480,7 +480,7 @@ async def img(event):
         return
     text = event.pattern_match.group(1)
     if not text:
-        await event.edit("No input found!")
+        await tr(event, "No input found!")
         return
     if ";" in text:
         search, result = text.split(";", 1)
@@ -509,12 +509,12 @@ async def img(event):
 async def lottiepie(event):
     if event.fwd_from:
         return
-    await event.edit("`Prooooooccccesssssssinggggg.....`")
+    await tr(event, "`Prooooooccccesssssssinggggg.....`")
     message = await event.get_reply_message()
     if message.media and message.media.document:
         mime_type = message.media.document.mime_type
         if not "tgsticker" in mime_type:
-            await event.edit("Not Supported Yet.")
+            await tr(event, "Not Supported Yet.")
             return
         await message.download_media("tgs.tgs")
         await runcmd("lottie_convert.py tgs.tgs json.json")
@@ -543,7 +543,7 @@ async def img(event):
         return
     text = event.pattern_match.group(1)
     if not text:
-        await event.edit("No input found!  --__--")
+        await tr(event, "No input found!  --__--")
         return
     if ":" in text:
         username, texto = text.split(":", 1)
@@ -668,7 +668,7 @@ async def holastark2(event):
     if event.fwd_from:
         return
     famous_people = ['modi', 'trump', 'albert', 'tony stark']
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     text = event.pattern_match.group(2)
     img = Image.open('./resources/CERTIFICATE_TEMPLATE_IMAGE.png')
     d1 = ImageDraw.Draw(img)
@@ -694,7 +694,7 @@ async def holastark2(event):
 async def slogo(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     text = event.pattern_match.group(2)
     img = Image.open('./resources/star/20201125_094030.jpg')
     draw = ImageDraw.Draw(img)
@@ -722,7 +722,7 @@ async def slogo(event):
 async def yufytf(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     text = event.pattern_match.group(2)
     img = Image.open('./resources/Blankmeisnub.jpg')
     draw = ImageDraw.Draw(img)
@@ -745,7 +745,7 @@ async def yufytf(event):
 async def holastark(event):
     if event.fwd_from:
         return
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     text = event.pattern_match.group(2)
     font_size = 3.6
     font_color = (51, 51, 51)
@@ -785,7 +785,7 @@ async def warnerstark_s(event):
     ws = event.pattern_match.group(1)
     img = await convert_to_image(event, borg)
     image = cv2.imread(img)
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     if ws == "flip":
         flipped = cv2.flip(image, 0)
         file_name = "Flipped.webp"
@@ -845,7 +845,7 @@ async def warnerstarkgang(event):
     if event.fwd_from:
         return
     img = await convert_to_image(event, borg)
-    await event.edit("`Coverting This Media To Image Now.`")
+    await tr(event, "`Coverting This Media To Image Now.`")
     so = "**Powered By @FridayOT**"
     await event.delete()
     await borg.send_file(event.chat_id, file=img, caption=so)
@@ -856,18 +856,18 @@ async def asscompress(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("Reply To Image To Compress It")
+        await tr(event, "Reply To Image To Compress It")
         return
     sed = await event.get_reply_message()
     if not sed.photo:
-        await event.edit("This Only Works On Images")
+        await tr(event, "This Only Works On Images")
         return
     sedq = int(event.pattern_match.group(1)) if event.pattern_match.group(1) else 75
     image_path = await friday.download_media(sed.media)
     im = Image.open(image_path)
     ok = "CompressedBy@FridayOt.png"
     im.save(ok, optimize=True, quality=sedq)
-    await event.edit("`Compressing This Image.`")
+    await tr(event, "`Compressing This Image.`")
     so = "**Powered By @FridayOT**"
     await event.delete()
     await borg.send_file(event.chat_id, file=ok, caption=so)
@@ -881,7 +881,7 @@ async def asscompress(event):
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit("Oh Wait Let Me Get Wear Glasses")
+    await tr(event, "Oh Wait Let Me Get Wear Glasses")
     if not event.reply_to_msg_id:
         ommhg = await edit_or_reply(event, "Reply To Any Image.")
         return
@@ -909,12 +909,12 @@ async def fasty(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("Reply To Any Video.")
+        await tr(event, "Reply To Any Video.")
         return
-    await event.edit("Ah, Shit. Here it Starts.")
+    await tr(event, "Ah, Shit. Here it Starts.")
     kk = await event.get_reply_message()
     if not kk.video or kk.video_note:
-        await event.edit("`Oho, Reply To Video Only`")
+        await tr(event, "`Oho, Reply To Video Only`")
         return
     hmm = await event.client.download_media(kk.media)
     c_time = time.time()
@@ -922,7 +922,7 @@ async def fasty(event):
     await runcmd(cmd)
     filem = "FastMotionBy@FridayOT.mp4"
     if not os.path.exists(filem):
-        await event.edit("**Process, Failed !**")
+        await tr(event, "**Process, Failed !**")
         return
     final_file = await uf(
             file_name=filem,
@@ -947,13 +947,13 @@ async def fasty(event):
 async def fasty(event):
     if event.fwd_from:
         return
-    await event.edit("Ah, Shit. Here it Starts.")
+    await tr(event, "Ah, Shit. Here it Starts.")
     if not event.reply_to_msg_id:
-        await event.edit("Reply To Any Video.")
+        await tr(event, "Reply To Any Video.")
         return
     kk = await event.get_reply_message()
     if not kk.video or kk.video_note:
-        await event.edit("`Oho, Reply To Video Only`")
+        await tr(event, "`Oho, Reply To Video Only`")
         return
     hmm = await event.client.download_media(kk.media)
     c_time = time.time()
@@ -961,7 +961,7 @@ async def fasty(event):
     await runcmd(cmd)
     filem = "SlowMotionBy@FridayOT.mp4"
     if not os.path.exists(filem):
-        await event.edit("**Process, Failed !**")
+        await tr(event, "**Process, Failed !**")
         return
     final_file = await uf(
             file_name=filem,
@@ -987,12 +987,12 @@ async def flip(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("Reply To Any Video.")
+        await tr(event, "Reply To Any Video.")
         return
-    await event.edit("Ah, Shit. Here it Starts.")
+    await tr(event, "Ah, Shit. Here it Starts.")
     kk = await event.get_reply_message()
     if not kk.video or kk.video_note:
-        await event.edit("`Oho, Reply To Video Only`")
+        await tr(event, "`Oho, Reply To Video Only`")
         return
     hmm = await event.client.download_media(kk.media)
     c_time = time.time()
@@ -1000,7 +1000,7 @@ async def flip(event):
     await runcmd(cmd)
     filem = "FlipedBy@FridayOT.mp4"
     if not os.path.exists(filem):
-        await event.edit("**Process, Failed !**")
+        await tr(event, "**Process, Failed !**")
         return
     final_file = await uf(
             file_name=filem,
@@ -1026,12 +1026,12 @@ async def audio_extract(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("Reply To Any Video.")
+        await tr(event, "Reply To Any Video.")
         return
-    await event.edit("Ah, Shit. Here it Starts.")
+    await tr(event, "Ah, Shit. Here it Starts.")
     kk = await event.get_reply_message()
     if not kk.video or kk.video_note:
-        await event.edit("`Oho, Reply To Video Only`")
+        await tr(event, "`Oho, Reply To Video Only`")
         return
     hmm = await event.client.download_media(kk.media)
     try:
@@ -1044,7 +1044,7 @@ async def audio_extract(event):
     await runcmd(cmd)
     filem = name_out
     if not os.path.exists(filem):
-        await event.edit("**Process, Failed !**")
+        await tr(event, "**Process, Failed !**")
         return
     final_file = await uf(
             file_name=filem,
@@ -1071,12 +1071,12 @@ async def convert_to_note(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("Reply To Any Video.")
+        await tr(event, "Reply To Any Video.")
         return
-    await event.edit("Ah, Shit. Here it Starts.")
+    await tr(event, "Ah, Shit. Here it Starts.")
     kk = await event.get_reply_message()
     if not (kk.video or kk.video_note or kk.gif or kk.video_note):
-        await event.edit("`Oho, Reply To Video Only.`")
+        await tr(event, "`Oho, Reply To Video Only.`")
         return
     hmm = await event.client.download_media(kk.media)
     try:
@@ -1087,7 +1087,7 @@ async def convert_to_note(event):
     filem = "ConvertedBy@FridayOT.mp4"
     await crop_vid(hmm, filem)
     if not os.path.exists(filem):
-        await event.edit("**Process, Failed !**")
+        await tr(event, "**Process, Failed !**")
         return
     final_file = await uf(
             file_name=filem,
@@ -1118,12 +1118,12 @@ async def starkmeme(event):
         return
     hmm = event.pattern_match.group(1)
     if hmm == None:
-        await event.edit("Give Some Text")
+        await tr(event, "Give Some Text")
         return
     if not event.reply_to_msg_id:
-        await event.edit("`PLease, Reply To A MsG`")
+        await tr(event, "`PLease, Reply To A MsG`")
         return
-    mryeast = await event.edit("Making Memes Until Praise MrBeast.")
+    mryeast = await tr(event, "Making Memes Until Praise MrBeast.")
     await event.get_reply_message()
     seds = await convert_to_image(event, borg)
     if ";" in hmm:
@@ -1193,13 +1193,13 @@ async def glitch(event):
     if event.fwd_from:
         return
     if not event.reply_to_msg_id:
-        await event.edit("`Are You on Weed? Please Reply To Image`")
+        await tr(event, "`Are You on Weed? Please Reply To Image`")
         return
     sed = await event.get_reply_message()
-    okbruh = await event.edit("`Gli, Glitchiiingggg.....`")
+    okbruh = await tr(event, "`Gli, Glitchiiingggg.....`")
     photolove = await convert_to_image(event, friday)
     pathsn = f"./starkgangz/@fridayot.gif"
-    await event.edit("Glitching Image :/")
+    await tr(event, "Glitching Image :/")
     glitch_imgs = glitcher.glitch_image(photolove, 2, gif=True, color_offset=True)
     glitch_imgs[0].save(
         pathsn,
@@ -1210,9 +1210,9 @@ async def glitch(event):
         loop=LOOP,
     )
     c_time = time.time()
-    await event.edit("Optimizing Now")
+    await tr(event, "Optimizing Now")
     optimize(pathsn)
-    await event.edit("Starting Upload")
+    await tr(event, "Starting Upload")
     stark_m = await uf(
         	file_name="Glitched@FridayOt.gif",
             client=borg,

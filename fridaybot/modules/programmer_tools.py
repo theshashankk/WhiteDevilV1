@@ -22,7 +22,7 @@ from fridaybot.utils import friday_on_cmd
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit(pyjokes.get_joke(category="all"))
+    await tr(event, pyjokes.get_joke(category="all"))
 
 
 @friday.on(friday_on_cmd(pattern="howdoi ?(.*)"))
@@ -31,11 +31,11 @@ async def __(event):
         return
     query = event.pattern_match.group(1)
     if query == None:
-        await event.edit("`Give Some Query First`")
+        await tr(event, "`Give Some Query First`")
         return
     output = howdoi.howdoi(query)
     lel = f"<b><u>Here is Your Answer</b></u> \n<code>{output}</code>"
-    await event.edit(lel, parse_mode="HTML")
+    await tr(event, lel, parse_mode="HTML")
 
 
 CMD_HELP.update(

@@ -36,7 +36,7 @@ async def _(event):
     try:
 	    a = country.info()
     except:
-	    await event.edit("Country Not Avaiable Currently")
+	    await tr(event, "Country Not Avaiable Currently")
     name = a.get("name")
     bb= a.get("altSpellings")
     hu = ''

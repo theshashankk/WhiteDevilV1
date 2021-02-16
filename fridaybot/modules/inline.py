@@ -102,7 +102,7 @@ async def on_plug_in_callback_query_handler(event):
         current_page_number = int(event.data_match.group(1).decode("UTF-8"))
         buttons = paginate_help(current_page_number + 1, CMD_HELP, "helpme")
         # https://t.me/TelethonChat/115200
-        await event.edit(buttons=buttons)
+        await tr(event, buttons=buttons)
     else:
         reply_popp_up_alert = "Please get your own Userbot, and don't use mine!"
         await event.answer(reply_popp_up_alert, cache_time=0, alert=True)
@@ -121,7 +121,7 @@ async def on_plug_in_callback_query_handler(event):
             current_page_number - 1, CMD_HELP, "helpme"  # pylint:disable=E0602
         )
         # https://t.me/TelethonChat/115200
-        await event.edit(buttons=buttons)
+        await tr(event, buttons=buttons)
     else:
         reply_pop_up_alert = "Please get your own Userbot, and don't use mine!"
         await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
@@ -150,13 +150,13 @@ async def on_plug_in_callback_query_handler(event):
         url = "https://del.dog/documents"
         r = requests.post(url, data=out_file.encode("UTF-8")).json()
         url = f"https://del.dog/{r['key']}"
-        await event.edit(
+        await tr(event, 
             f"Pasted {plugin_name} to {url}",
             link_preview=False,
             buttons=[[custom.Button.inline("Go Back", data=f"backme_{page_number}")]],
         )
     else:
-        await event.edit(
+        await tr(event, 
             message=reply_pop_up_alert,
             buttons=[[custom.Button.inline("Go Back", data=f"backme_{page_number}")]],
         )
@@ -219,7 +219,7 @@ async def rip(event):
     await event.get_chat()
     him_id = event.query.user_id
     text1 = "**You Have Chosed A Probhited Option. Therefore, You Have Been Blocked By UserBot.**"
-    await event.edit(text1)
+    await tr(event, text1)
     await borg(functions.contacts.BlockRequest(event.query.user_id))
     PM_E = f"**#PMEVENT** \nUser ID : {him_id} \n**This User Choose Probhited Option, So Has Been Blocked !** \n[Contact Him](tg://user?id={him_id})"
     await borg.send_message(
@@ -240,7 +240,7 @@ async def sed(event):
     buttons = paginate_help(sedm, CMD_HELP, "helpme")
     sed = f"""Friday Userbot Modules Are Listed Here !\n
 For More Help or Support Visit @FridayOT \nCurrently Loaded Plugins: {len(CMD_LIST)}"""
-    await event.edit(message=sed, buttons=buttons)
+    await tr(event, message=sed, buttons=buttons)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"whattalk")))
@@ -252,7 +252,7 @@ async def rip(event):
         return
     await event.get_chat()
     him_id = event.query.user_id
-    await event.edit("Ok. Please Wait Until My Master Approves. Don't Spam Or Try Anything Stupid. \nThank You For Contacting Me.")
+    await tr(event, "Ok. Please Wait Until My Master Approves. Don't Spam Or Try Anything Stupid. \nThank You For Contacting Me.")
     PM_E = f"**#PMEVENT** \nUser ID : {him_id} \n**This User Wanted To Talk To You.** \n[Contact Him](tg://user?id={him_id})"
     await borg.send_message(
         LOG_CHAT,
@@ -268,7 +268,7 @@ async def rip(event):
         return
     await event.get_chat()
     him_id = event.query.user_id
-    await event.edit("Ok, Wait. You can Ask After Master Approves You. Kindly, Wait.")
+    await tr(event, "Ok, Wait. You can Ask After Master Approves You. Kindly, Wait.")
     PM_E = f"**#PMEVENT** \nUser ID : {him_id} \n**This User Wanted To Ask You Something** \n[Contact Him](tg://user?id={him_id})"
     await borg.send_message(
         LOG_CHAT,
@@ -278,7 +278,7 @@ async def rip(event):
 async def rip(event):
     o = await all_pro_s(Config, client1, client2, client3)
     if event.query.user_id in o:
-       await event.edit("Help Menu Closed Successfully")
+       await tr(event, "Help Menu Closed Successfully")
     if event.query.user_id not in o:
         sedok = "Who The Fuck Are You? Get Your Own Friday."
         await event.answer(sedok, cache_time=0, alert=True)

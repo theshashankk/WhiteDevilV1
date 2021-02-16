@@ -28,7 +28,7 @@ async def nsfw(event):
     if event.fwd_from:
         return
     url = "https://nsfw-categorize.it/api/upload"
-    await event.edit("`Processing..`")
+    await tr(event, "`Processing..`")
     sed = await event.get_reply_message()
     photo = None
     sedpath = "./fridaydevs/"
@@ -38,19 +38,19 @@ async def nsfw(event):
         elif "image" in sed.media.document.mime_type.split("/"):
             photo = await borg.download_media(sed.media, sedpath)
         else:
-            await event.edit("Reply To Image")
+            await tr(event, "Reply To Image")
             return
     if photo:
         files = {"image": (f"{photo}", open(f"{photo}", "rb"))}
         r = requests.post(url, files=files).json()
         if r["status"] == "OK":
-            await event.edit(
+            await tr(event, 
                 "This image is classified as " + str(r["data"]["classification"])
             )
         if os.path.exists(photo):
             os.remove(photo)
         else:
-            await event.edit("Response UnsucessFull. Try Again.")
+            await tr(event, "Response UnsucessFull. Try Again.")
             if os.path.exists(photo):
                 os.remove(photo)
 

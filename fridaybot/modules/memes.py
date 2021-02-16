@@ -697,7 +697,7 @@ async def _(event):
 """
 
     Y = X.replace("🌺",hitleR)
-    await event.edit(Y)
+    await tr(event, Y)
 
 
 
@@ -712,24 +712,24 @@ async def _(event):
             input_str = input_str.lower()
         if r % 2 == 1:
             if input_str == "heads":
-                await event.edit("The coin landed on: **Heads**.\nYou were correct.")
+                await tr(event, "The coin landed on: **Heads**.\nYou were correct.")
             elif input_str == "tails":
-                await event.edit(
+                await tr(event, 
                     "The coin landed on: **Heads**.\nYou weren't correct, try again ..."
                 )
             else:
-                await event.edit("The coin landed on: **Heads**.")
+                await tr(event, "The coin landed on: **Heads**.")
         elif r % 2 == 0:
             if input_str == "tails":
-                await event.edit("The coin landed on: **Tails**.\nYou were correct.")
+                await tr(event, "The coin landed on: **Tails**.\nYou were correct.")
             elif input_str == "heads":
-                await event.edit(
+                await tr(event, 
                     "The coin landed on: **Tails**.\nYou weren't correct, try again ..."
                 )
             else:
-                await event.edit("The coin landed on: **Tails**.")
+                await tr(event, "The coin landed on: **Tails**.")
         else:
-            await event.edit("Gimme another coin, this one fake AF !!")
+            await tr(event, "Gimme another coin, this one fake AF !!")
 
 
 @register(pattern="^.slap(?: |$)(.*)", outgoing=True)
@@ -747,10 +747,10 @@ async def who(event):
             message_id_to_reply = None
 
         try:
-            await event.edit(caption)
+            await tr(event, caption)
 
         except:
-            await event.edit(
+            await tr(event, 
                 "`Can't slap this person, need to fetch some sticks and stones !!`"
             )
 
@@ -782,7 +782,7 @@ async def get_user(event):
             replied_user = await event.client(GetFullUserRequest(user_object.id))
 
         except (TypeError, ValueError):
-            await event.edit("`I don't slap aliens, they ugly AF !!`")
+            await tr(event, "`I don't slap aliens, they ugly AF !!`")
             return None
 
     return replied_user
@@ -1176,7 +1176,7 @@ async def _(event):
         deq = deque(list("🌗🌘🌑🌒🌓🌔🌕🌖"))
         for _ in range(32):
             await asyncio.sleep(0.1)
-            await event.edit("".join(deq))
+            await tr(event, "".join(deq))
             deq.rotate(1)
 
 
@@ -1188,7 +1188,7 @@ async def _(event):
         deq = deque(list("🕙🕘🕗🕖🕕🕔🕓🕒🕑🕐🕛"))
         for _ in range(32):
             await asyncio.sleep(0.1)
-            await event.edit("".join(deq))
+            await tr(event, "".join(deq))
             deq.rotate(1)
 
 
@@ -1384,14 +1384,14 @@ async def download_video(v_url):
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit("╔┓┏╦━╦┓╔┓╔━━╗\n║┗┛║┗╣┃║┃║X X  ║\n║┏┓║┏╣┗╣┗╣╰╯║\n╚┛┗╩━╩━╩━╩━━╝")
+    await tr(event, "╔┓┏╦━╦┓╔┓╔━━╗\n║┗┛║┗╣┃║┃║X X  ║\n║┏┓║┏╣┗╣┗╣╰╯║\n╚┛┗╩━╩━╩━╩━━╝")
 
 
 @friday.on(friday_on_cmd(pattern=r"plus$"))
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit(
+    await tr(event, 
         "╭━━━━━━━━━━━━━╮\n┃╱╱╱╱╱╱╱╱┏┓╱╱╱┃\n┃╱╱╱┏┓╱╱┏╯┃╱╱╱┃\n┃╱╱┏┛┗┓╱┗┓┃╱╱╱┃\n┃╱╱┗┓┏┛╱╱┃┃╱╱╱┃\n┃╱╱╱┗┛╱╱╱┃┃╱╱╱┃\n┃╱╱╱╱╱╱╱╱┗┛╱╱╱┃\n╰━━━━━━━━━━━━━╯"
     )
 
@@ -1400,7 +1400,7 @@ async def hi(event):
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit(
+    await tr(event, 
         "┏┓┏┓╭━━┓╭━━╮▕▔▔▏\n┃┃┃┃┃┏━┛┃╭━┛▕┈┈▏\n┃╰╯┃┃┗━┓┃╰━╮▕┈┈▏\n╰━╮┃┃┏━┛╰━╮┃┈╲╱┈\n┏━╯┃┃┗━┓┏━╯┃┈╭╮┈\n╰━━╯╰━━┛╰━━╯┈╰╯┈"
     )
 
@@ -1409,7 +1409,7 @@ async def hi(event):
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit(
+    await tr(event, 
         "▂▂╱▔▔▔▔▔▔▔▔▔▔▔▔╲\n╲▂┈╭╮┈┈╭━━╮╭╮┈┈▕\n┈┈▏┃┃┈┈┃╭╮┃┃┃┈┈▕\n┈┈▏┃╰━╮┃╰╯┃┃╰━╮▕\n┈┈▏╰━━╯╰━━╯╰━━╯▕\n┈┈╲▂▂▂▂▂▂▂▂▂▂▂▂╱"
     )
 
@@ -1418,7 +1418,7 @@ async def hi(event):
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit(
+    await tr(event, 
         "┈┈┈╲┈┈┈┈╱┈┈┈┈┈┈┈\n┈┈┈╱▔▔▔▔╲┈┈┈┈┈┈┈\n┈┈┃┈▇┈┈▇┈┃┈┈┈┈┈┈\n╭╮┣━━━━━━┫╭╮┈┈┈┈\n┃┃┃┈┈┈┈┈┈┃┃┃┈┈┈┈\n╰╯┃┈┈┈┈┈┈┃╰╯┈┈┈┈\n┈┈╰┓┏━━┓┏╯┈┈┈┈┈┈\n┈┈┈╰╯┈┈╰╯┈┈┈┈┈┈┈"
     )
 
@@ -1427,7 +1427,7 @@ async def hi(event):
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit(
+    await tr(event, 
         "┈┈╱▔▔▔▔▔╲┈┈┈HM┈HM\n┈╱┈┈╱▔╲╲╲▏┈┈┈HMMM\n╱┈┈╱━╱▔▔▔▔▔╲━╮┈┈\n▏┈▕┃▕╱▔╲╱▔╲▕╮┃┈┈\n▏┈▕╰━▏▊▕▕▋▕▕━╯┈┈\n╲┈┈╲╱▔╭╮▔▔┳╲╲┈┈┈\n┈╲┈┈▏╭━━━━╯▕▕┈┈┈\n┈┈╲┈╲▂▂▂▂▂▂╱╱┈┈┈\n┈┈┈┈▏┊┈┈┈┈┊┈┈┈╲┈\n┈┈┈▏┊┈┈┈┈┊▕╲┈┈╲\n┈╱▔╲▏┊┈┈┈┈┊▕╱▔╲▕\n┈▏┈┈┈╰┈┈┈┈╯┈┈┈▕▕\n┈╲┈┈┈╲┈┈┈┈╱┈┈┈╱┈╲\n┈┈╲┈┈▕▔▔▔▔▏┈┈╱╲╲╲▏\n┈╱▔┈┈▕┈┈┈┈▏┈┈▔╲▔▔\n┈╲▂▂▂╱┈┈┈┈╲▂▂▂╱┈"
     )
 
@@ -1438,7 +1438,7 @@ async def hi(event):
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit(
+    await tr(event, 
         "¸.•°*”˜˜”*°•.¸☆ ★ ☆¸.•°*”˜˜”*°\n╔╗╔╦══╦═╦═╦╗╔╗ ★ ★ \n║╚╝║══║═║═║╚╝║ ☆¸.•° \n║╔╗║╔╗║╔╣╔╩╗╔╝ ★\n╚╝╚╩╝╚╩╝╚╝═╚╝★Birthday!★"
     )
 
@@ -1447,7 +1447,7 @@ async def hi(event):
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit(
+    await tr(event, 
         "┏┓┏┓┏┓┏━━━┓┏━━━┓\n┃┃┃┃┃┃┗┓╱┏┛┃╱┏━┛\n┃┗┛┗┛┃┈┃╱┃┈┃╱┗┓\n┃╱╱╱╱┃┈┃╱┃┈┃╱┏┛\n┗━━━━┛◯┗━┛◯┗━┛◯"
     )
 
@@ -1456,7 +1456,7 @@ async def hi(event):
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit(
+    await tr(event, 
         "┏┓┈╭━━╮╭━━╮╭━━╮\n┃┃┈┃┃┃┃┃╭╮┃┃╭╮┃\n┃┗┓┃┃┃┃┃┏┓┃┃╰╯┃\n┗━┛┗┻┻┛┗┛┗┛╰━━╯"
     )
 
@@ -1482,7 +1482,7 @@ async def hi(event):
  ╰╯╰╯╰┻━━┻╯╰╯╰┻┻╯╰┻━╮┃
  ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╭━╯┃
  ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰━━╯"""
-    await event.edit(X)
+    await tr(event, X)
 
 
 
@@ -1490,7 +1490,7 @@ async def hi(event):
 async def hi(event):
     if event.fwd_from:
         return
-    await event.edit(
+    await tr(event, 
         "███╗░░██╗░█████╗░ \n████╗░██║██╔══██╗ \n██╔██╗██║██║░░██║ \n██║╚████║██║░░██║ \n██║░╚███║╚█████╔╝ \n╚═╝░░╚══╝░╚════╝░ "
     )
 

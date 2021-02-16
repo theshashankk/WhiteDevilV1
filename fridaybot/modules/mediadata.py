@@ -37,12 +37,12 @@ async def _(event):
         return
     reply_message = await event.get_reply_message()
     if reply_message is None:
-        await event.edit("Reply To a Media.")
-    await event.edit("`Processing...`")
+        await tr(event, "Reply To a Media.")
+    await tr(event, "`Processing...`")
     file_path = await borg.download_media(reply_message, Config.TMP_DOWNLOAD_DIRECTORY)
     out, err, ret, pid = await runcmd(f"mediainfo '{file_path}'")
     if not out:
-        await event.edit("`Wtf, I Can't Determine This File Info`")
+        await tr(event, "`Wtf, I Can't Determine This File Info`")
         return
     media_info = f"""
     <code>           
@@ -52,7 +52,7 @@ async def _(event):
     ws = media_info.replace("\n", "<br>")
     response = telegraph.create_page(title_of_page, html_content=ws)
     km = response["path"]
-    await event.edit(f"`This MediaInfo Can Be Found` [Here](https://telegra.ph/{km})")
+    await tr(event, f"`This MediaInfo Can Be Found` [Here](https://telegra.ph/{km})")
     if os.path.exists(file_path):
         os.remove(file_path)
 

@@ -18,24 +18,24 @@ async def _(event):
     for i in range(601):
         shiiinabot += "\u2060"
     try:
-        await event.edit(shiiinabot)
+        await tr(event, shiiinabot)
     except Exception as e:
         logger.warn(str(e))
     typing_symbol = "|"
     DELAY_BETWEEN_EDITS = 0.3
     previous_text = ""
-    await event.edit(typing_symbol)
+    await tr(event, typing_symbol)
     await asyncio.sleep(DELAY_BETWEEN_EDITS)
     for character in input_str:
         previous_text = previous_text + "" + character
         typing_text = previous_text + "" + typing_symbol
         try:
-            await event.edit(typing_text)
+            await tr(event, typing_text)
         except Exception as e:
             logger.warn(str(e))
         await asyncio.sleep(DELAY_BETWEEN_EDITS)
         try:
-            await event.edit(previous_text)
+            await tr(event, previous_text)
         except Exception as e:
             logger.warn(str(e))
         await asyncio.sleep(DELAY_BETWEEN_EDITS)

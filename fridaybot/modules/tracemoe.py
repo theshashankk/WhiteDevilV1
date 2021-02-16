@@ -27,11 +27,11 @@ async def anime_name(event):
     tracemoe = tracemoepy.tracemoe.TraceMoe()
     file_s = await convert_to_image(event, friday)
     c_time = time.time()
-    await event.edit("`Searching For This Anime. Bruh.`")
+    await tr(event, "`Searching For This Anime. Bruh.`")
     try:
       st = tracemoe.search(file_s, encode=True)
     except:
-      await event.edit("`SomeThing is Sad, Failed.`")
+      await tr(event, "`SomeThing is Sad, Failed.`")
       return
     video = tracemoe.natural_preview(st)
     with open('preview@FridayOT.mp4', 'wb') as f:

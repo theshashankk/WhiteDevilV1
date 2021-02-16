@@ -56,17 +56,17 @@ async def _(event):
     if not t_response:
         logger.info(e_response)
         logger.info(t_response)
-        await event.edit("@oo0pps .. something wrongings. Failed to decode QRCode")
+        await tr(event, "@oo0pps .. something wrongings. Failed to decode QRCode")
         return
     soup = BeautifulSoup(t_response, "html.parser")
     qr_contents = soup.find_all("pre")[0].text
     end = datetime.now()
     ms = (end - start).seconds
-    await event.edit(
+    await tr(event, 
         "Obtained QRCode contents in {} seconds.\n{}".format(ms, qr_contents)
     )
     await asyncio.sleep(5)
-    await event.edit(qr_contents)
+    await tr(event, qr_contents)
 
 
 @friday.on(friday_on_cmd(pattern="makeqr ?(.*)"))
@@ -119,7 +119,7 @@ async def _(event):
     os.remove("img_file.webp")
     end = datetime.now()
     ms = (end - start).seconds
-    await event.edit("Created QRCode in {} seconds".format(ms))
+    await tr(event, "Created QRCode in {} seconds".format(ms))
     await asyncio.sleep(5)
     await event.delete()
 
