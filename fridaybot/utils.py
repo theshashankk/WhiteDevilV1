@@ -3,7 +3,6 @@ import inspect
 import logging
 import re
 from pathlib import Path
-from fridaybot.function.bot_utils import tr
 from telethon import events
 
 from fridaybot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot, client2, client3, CMD_HELP
@@ -19,6 +18,22 @@ from fridaybot.Configs import Config
 sedprint = logging.getLogger("PLUGINS")
 cmdhandler = Config.COMMAND_HAND_LER
 bothandler = Config.BOT_HANDLER
+
+from fridaybot.Configs import Config
+from googletrans import LANGUAGES
+from google_trans_new import google_translator
+
+
+async def tr(event, text):
+    kk = Config.LANG if LANGUAGES.get(Config.LANG) else 'en'
+    if kk == 'en':
+        await event.edit(text)
+    else:
+        final_text = text.replace("*", "").replace("`", "").replace("__", "")
+        translator = google_translator()
+        translated = translator.translate(final_text, lang_tgt=kk)
+        await event.edit(translated)
+    return    
 
 def command(**args):
     args["func"] = lambda e: e.via_bot_id is None
