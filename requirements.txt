@@ -16,7 +16,6 @@ pokedex.py
 faker
 tracemoepy
 deep_translator
-pornhub-api
 countryinfo
 mal-api
 youtube-search-python
