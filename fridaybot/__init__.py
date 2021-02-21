@@ -118,5 +118,5 @@ try:
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
 except:
     pass
-friday_version = "7.0"
-friday_name = "FridayUserBot V7.0"
+DEVIL_version = "1.0"
+DEVIL_name = "WHITEDEVILUSERBOT V1.0"
