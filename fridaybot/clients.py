@@ -2,7 +2,7 @@
 from telethon import TelegramClient
 import logging
 from telethon.sessions import StringSession
-from fridaybot.Configs import Config
+from devil.Configs import Config
 
 starky = logging.getLogger("ALERT")
 
