@@ -24,5 +24,5 @@ from fridaybot.modules import currentversion
 # only Owner Can Use it
 @assistant_cmd("alive", is_args=False)
 @peru_only
-async def friday(event):
+async def devil(event):
     await event.reply(f"`Yo ! {bot.me.first_name} , I am Alive. Need Help ? Maybe You Should Pm Me.`")
