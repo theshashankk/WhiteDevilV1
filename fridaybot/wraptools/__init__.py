@@ -17,9 +17,9 @@ import re
 
 from telethon import events
 
-from fridaybot import bot
-from fridaybot.Configs import Config
-from fridaybot.Configs import Config
+from whitedevil import bot
+from whitedevil.Configs import Config
+from whitedevil.Configs import Config
 
 
 def ignore_fwd():
@@ -48,7 +48,7 @@ def am_i_admin():
                 await func(event)
             else:
                 await event.edit(
-                    "I Must Be Admin To Do This. Please Make Sure I Am Admin."
+                    "master jiii admin toh bano."
                 )
 
         return wrapper
