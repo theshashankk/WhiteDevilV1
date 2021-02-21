@@ -17,8 +17,8 @@ from telethon import __version__ as tv
 import sys
 import platform
 from git import Repo
-from fridaybot import ALIVE_NAME
-from fridaybot import bot
+from white devil import ALIVE_NAME
+from white devil import bot
 from fridaybot.modules import currentversion
 
 # only Owner Can Use it
