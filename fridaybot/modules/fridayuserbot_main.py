@@ -83,7 +83,7 @@ async def fridayalive(alive):
     uptime = get_readable_time((time.time() - Lastupdate))
     repo = Repo()
     branch_name = repo.active_branch.name
-    pm_caption = ("➥ **FRIDAY IS:** `ONLINE`\n\n"
+    pm_caption = ("➥ **DEVIL IS:** `ONLINE`\n\n"
                   "➥ **SYSTEMS STATS**\n"
                   f"➥ **Telethon Version:** `{tv}` \n"
                   f"➥ **Python:** `{platform.python_version()}` \n"
@@ -93,10 +93,10 @@ async def fridayalive(alive):
                   f"➥ **Version** : `{friday_version}`\n"
                   f"➥ **My Boss** : {bot.me.first_name} \n"
                   "➥ **Heroku Database** : `AWS - Working Properly`\n\n"
-                  "➥ **License** : [GNU General Public License v3.0](github.com/StarkGang/FridayUserbot/blob/master/LICENSE)\n"
-                  "➥ **Copyright** : By [StarkGang@Github](GitHub.com/StarkGang)\n"
+                  "➥ **License** : [GNU General Public License v3.0](github.com/Theshashankk/WhiteDevilV1/blob/master/LICENSE)\n"
+                  "➥ **Copyright** : By [Theshashankk@Github](GitHub.com/Theshashankk)\n"
                   "➥ **Check Stats By Doing** `.stat`. \n\n"
-                  "[🇮🇳 Deploy FridayUserbot 🇮🇳](https://telegra.ph/FRIDAY-06-15)")
+                  "[😈😈deploy White 👿👿](https://telegra.ph/FRIDAY-06-15)")
     
     await borg.send_message(
         alive.chat_id,
@@ -429,8 +429,8 @@ async def cmd_list(event):
             else:
                 await event.edit(input_str + " is not a valid plugin!")
         else:
-            help_string = """Friday Userbot Modules Are Listed Here !\n
-For More Help or Support Visit @FridayOT"""
+            help_string = """White Devil Userbot Modules Are Listed Here !\n
+For More Help or Support Visit @Whitedeviluserbot"""
             results = await bot.inline_query(  # pylint:disable=E0602
                 tgbotusername, help_string
             )
