@@ -1,4 +1,4 @@
-<p align="center"><a href="https://t.me/whitedeviluserbot"><img src="https://telegra.ph/file/a47512bb109b1d161950e.jpg
+<p align="center"><a href="https://t.me/whitedeviluserbot"><img src="https://telegra.ph/file/a47512bb109b1d161950e.jpg"
     " width="5000"></a></p> 
 <h1 align="center"><b>WHITEDEVIL 🇮🇳 </b></h1>
 <h4 align="center">A Powerful, Smart And Simple Userbot In Telethon. Powered By NoSpam+</h4>
