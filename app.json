@@ -1,17 +1,17 @@
 {
-  "name": "Friday-Userbot",
+  "name": "𝑾𝑯𝑰𝑻𝑬-𝑫𝑬𝑽𝑰𝑳",
   "description": "A Userbot Based On Telethon By Friday Devs",
-  "logo": "https://telegra.ph/file/b4e1e36c6b1fcb32dd997.jpg",
+  "logo": "https://telegra.ph/file/e1b0be7faac50a1a77927.jpg",
   "keywords": [
     "telegram",
-    "fridaybot",
+    "whute-devil",
     "plugin",
-    "telegram-fridaybot",
+    "telegram-white-devil",
     "productivity"
   ],
-  "repository": "https://github.com/starkgang/FridayUserbot",
-  "website": "starkgang.ml",
-  "success_url": "t.me/FridayOT",
+  "repository": "https://github.com/theshashankk/WhiteDevilV1",
+  "website": "proskapp.blogspot.com",
+  "success_url": "t.me/whitedeviluserbot",
   "stack": "container",
   "env": {
     "ENV": {
