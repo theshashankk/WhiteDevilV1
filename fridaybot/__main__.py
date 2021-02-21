@@ -20,11 +20,11 @@ from telethon import TelegramClient
 from telethon import __version__ as tv
 import sys
 import platform
-from fridaybot import bot, client2, client3, friday_version
-from fridaybot.Configs import Config
+from WHITEDEVIL import bot, client2, client3, friday_version
+from WHITEDEVIL.Configs import Config
 from telethon.tl.types import InputMessagesFilterDocument
-from fridaybot.utils import load_module, start_assistant, load_module_dclient
-from fridaybot.Configs import Config
+from WHITEDEVIL.utils import load_module, start_assistant, load_module_dclient
+from WHITEDEVIL.Configs import Config
 
 fridaydevs = logging.getLogger("Friday")
 
@@ -38,7 +38,7 @@ async def add_bot(bot_token):
 async def check_inline_on_warner(ws):
     w_s = await ws.get_me()
     if not w_s.bot_inline_placeholder:
-        fridaydevs.info("Warning : We Have Detected That You Have Not Turned On Inline Mode For Your Assistant Bot, Please Go To @BotFather And Enable This.")
+        fridaydevs.info("Warning :ABE ULLUUU KE PATHE @BOTFATHER ME JAA KR INLINE MODE ON KR.")
     return
 
 Lol = "folyl's Token"
@@ -81,7 +81,7 @@ async def get_other_plugins(Config, client_s, fridaydevs):
             search=".py",
         )
     except:
-        fridaydevs.info("Failed To Other Modules :(")
+        WHITEDEVIL.info("Failed To Other Modules :(")
         return
     for meisnub in a_plugins:
         hmm = meisnub.media.document.attributes[-1].file_name
@@ -144,9 +144,9 @@ if Config.ENABLE_ASSISTANTBOT == "ENABLE":
             path1 = Path(f.name)
             shortname = path1.stem
             start_assistant(shortname.replace(".py", ""))
-    wsta = "Friday And Assistant Bot Have Been Installed Successfully !"
+    wsta = "SUR JII APKA WHITE DEVIL BOT READY HAI !"
 else:
-    wsta = "Friday Has Been Installed Sucessfully"
+    wsta = "SUR JII APKA WHITE DEVIL BOT READY HAI"
 
 total_clients = 1
 if failed2 is None:
@@ -159,11 +159,11 @@ if wsta[0].lower() != Lol[0]:
     
 fridaydevs.info(f"""{wsta}
 -------------------------------------------
-Friday-Userbot Based On Telethon V{tv}
+DEVIL-Userbot Based On Telethon V{tv}
 Python Version : {platform.python_version()}
-Friday-Userbot Version : V{friday_version}
-Support Chat : @FridayChat
-Updates Channel : @FridaySupportOfficial
+DEVIL-Userbot Version : V{devil_version}
+Support Chat : @WHITEDEVILUSERBOT
+Updates Channel : @WHITEDEVILUSERBOT
 Total Clients : {total_clients}
 -------------------------------------------""")
         
