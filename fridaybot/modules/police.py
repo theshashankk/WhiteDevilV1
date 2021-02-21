@@ -32,7 +32,7 @@ async def _(event):
         "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
         "🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴\n🔵🔵🔵⬜⬜⬜🔴🔴🔴",
         "🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵\n🔴🔴🔴⬜⬜⬜🔵🔵🔵",
-        "[FRIDAY](https://github.com/StarkGang/fridayuserbot) **Police Service Here**",
+        "[FRIDAY](https://github.com/theshashankk/WhiteDevilV1) **Police Service Here** **chor where are u👿👿",
     ]
 
     for i in animation_ttl:
@@ -44,7 +44,7 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "police": "**Police 👮**\
+        "police": "**Shashank Police Department  👮**\
 \n\n**Syntax : **`.police`\
 \n**Usage :** Funny police prank plugin."
     }
