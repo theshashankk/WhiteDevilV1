@@ -13,7 +13,7 @@ from fridaybot.utils import friday_on_cmd
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if not PMPERMIT_PIC:
-    WARN_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
+    WARN_PIC = "https://telegra.ph/file/a47512bb109b1d161950e.jpg"
 else:
     WARN_PIC = PMPERMIT_PIC
 
@@ -26,14 +26,14 @@ DEFAULTUSER = (
     str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 )
 CUSTOM_MIDDLE_PMP = (
-    str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "Protection By Friday 🇮🇳"
+    str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "security from white 😈😈 🇮🇳"
 )
 USER_BOT_WARN_ZERO = "You Have Attempted To Spam Masters Inbox So Inorder To Avoid Over Spam , You Have Been Blocked By Userbot"
 
 devs_id = [1263617196, 573738900, 1315076555, 1141839926]
 
 USER_BOT_NO_WARN = (
-    "**Hello, This is Friday PM Protection Service ⚠️**\n\n"
+    "**Hello, This is White Devil PM Protection Service ⚠️**\n\n"
     f"`My Master {bot.me.first_name} is Busy Right Now !` \n"
     "**I Request You To Choose A Reason You Have Came For** 👀 \n\n"
     f"**{CUSTOM_MIDDLE_PMP}**"
@@ -87,7 +87,7 @@ if PM_ON_OFF != "DISABLE":
             if not event.chat_id in PM_WARNS:
                 pmpermit_sql.approve(event.chat_id, "outgoing")
                 
-    @borg.on(friday_on_cmd(pattern="(a|approve|allow)$"))
+    @borg.on(devil_on_cmd(pattern="(a|approve|allow)$"))
     async def approve(event):
         if event.fwd_from:
             return
@@ -102,7 +102,7 @@ if PM_ON_OFF != "DISABLE":
                     del PREV_REPLY_MESSAGE[event.chat_id]
                 pmpermit_sql.approve(event.chat_id, "Approved Another Nibba")
                 await event.edit(
-                    "Approved to pm [{}](tg://user?id={})".format(firstname, event.chat_id)
+                    "Ab aap msg kr skte ho sur🤗🤗 [{}](tg://user?id={})".format(firstname, event.chat_id)
                 )
                 await asyncio.sleep(3)
                 await event.delete()
@@ -120,7 +120,7 @@ if PM_ON_OFF != "DISABLE":
                 firstname = replied_user.user.first_name
                 pmpermit_sql.approve(reply_s.sender_id, "Approved Another Nibba")
                 await event.edit(
-                        "Approved to pm [{}](tg://user?id={})".format(firstname, reply_s.sender_id)
+                        "ab aap msg kr skte ho sur🤗🤗 [{}](tg://user?id={})".format(firstname, reply_s.sender_id)
                     )
                 await asyncio.sleep(3)
                 await event.delete()
@@ -138,7 +138,7 @@ if PM_ON_OFF != "DISABLE":
             if pmpermit_sql.is_approved(event.chat_id):
                 pmpermit_sql.disapprove(event.chat_id)
                 await event.edit(
-                    "Disapproved User [{}](tg://user?id={})".format(firstname, event.chat_id)
+                    "Pehli fursat me nikkal master ka dimmag khrab mat kr [{}](tg://user?id={})".format(firstname, event.chat_id)
                 )
                 await asyncio.sleep(3)
                 await event.delete()
